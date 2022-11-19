@@ -1,0 +1,18 @@
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'destinofase.label.origemProcesso'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-5">
+        <select ng-model="data.entidade.origemDestino"
+                class="form-control input-dm"
+                ng-disabled="!novo && !edit">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-repeat="item in origemDestinoSelect">{{item.label}}
+            </option>
+        </select>
+    </div>
+</div>
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

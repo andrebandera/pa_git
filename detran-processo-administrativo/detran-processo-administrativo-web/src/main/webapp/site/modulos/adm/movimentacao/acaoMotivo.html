@@ -1,0 +1,61 @@
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'movimentacao.label.acao' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-3">
+        <select ng-disabled="page == 'view' || page == 'edit' || !data.processoAdministrativo.cpf"
+                ng-change="limparMotivo()"
+                ng-model="data.entidade.movimentacaoAcao" 
+                class="form-control input-xs" >
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value == data.entidade.movimentacaoAcao" 
+                    ng-repeat="item in acaoSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group" ng-if="data.entidade.movimentacaoAcao">
+    <label class="col-xs-2 control-label">{{'movimentacao.label.motivo' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-3" ng-if="data.entidade.movimentacaoAcao == 'CANCELAR'">
+        <select ng-disabled="page == 'view' || page == 'edit' || !data.processoAdministrativo.cpf"
+                ng-model="data.entidade.motivo" 
+                class="form-control input-xs">
+                <option value="">Selecione</option>
+                <option ng-value="item.value"
+                        ng-selected="item.value == data.entidade.motivo" 
+                        ng-repeat="item in motivoCancelarSelect">{{item.label}}</option>
+        </select>
+    </div>
+    
+    <div class="col-xs-3" ng-if="data.entidade.movimentacaoAcao == 'SUSPENDER'">
+        <select ng-disabled="page == 'view' || page == 'edit' || !data.processoAdministrativo.cpf"
+                ng-model="data.entidade.motivo" 
+                class="form-control input-xs">
+                <option value="">Selecione</option>
+                <option ng-value="item.value"
+                        ng-selected="item.value == data.entidade.motivo" 
+                        ng-repeat="item in motivoSuspenderSelect">{{item.label}}</option>
+        </select>
+    </div>
+    
+    <div class="col-xs-3" ng-if="data.entidade.movimentacaoAcao == 'RETIRAR_SUSPENSAO'">
+        <select ng-disabled="page == 'view' || page == 'edit' || !data.processoAdministrativo.cpf"
+                ng-model="data.entidade.motivo" 
+                class="form-control input-xs">
+                <option value="">Selecione</option>
+                <option ng-value="item.value"
+                        ng-selected="item.value == data.entidade.motivo" 
+                        ng-repeat="item in motivoRetirarSuspensaoSelect">{{item.label}}</option>
+        </select>
+    </div>
+    
+    <div class="col-xs-3" ng-if="data.entidade.movimentacaoAcao == 'ARQUIVAR'">
+        <select ng-disabled="page == 'view' || page == 'edit' || !data.processoAdministrativo.cpf"
+                ng-model="data.entidade.motivo" 
+                class="form-control input-xs">
+                <option value="">Selecione</option>
+                <option ng-value="item.value"
+                        ng-selected="item.value == data.entidade.motivo" 
+                        ng-repeat="item in motivoArquivarSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>

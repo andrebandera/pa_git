@@ -1,0 +1,95 @@
+<div class="modal-header">
+    <h3>{{title || 'pessoa.titulo'| i18next}}</h3>
+</div>
+<div class="modal-body ">
+    <form class="form-horizontal row">
+
+        <div class="form-group">
+            <!-- Text input-->
+            <label class="col-sm-4 control-label">{{'pessoa.label.nome'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+            <div class="col-sm-7">
+                <input ng-model="tabelaPessoa.data.nome.entidade.nomePrincipal.nome" class="form-control input-sm" type="text" dtn-uppercase/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-4 control-label">{{'pessoa.label.cpf'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+            <div class="col-sm-3">
+                <input ng-model="tabelaPessoa.data.documentoIdentificacao.entidade.tipoDocumento.codigo" ng-value="0" type="hidden" />
+                <input ng-model="tabelaPessoa.data.cpfCnpj.entidade.numeroDocumento"
+                       class="form-control input-sm" type="text"
+                       dtn-maskcpfcnpj
+                       maxlength="14"
+                       placeholder="___.___.___-__"
+                       auto-tab-to="pessoa_dataNascimento" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-4 control-label">{{'pessoa.label.dataNasc'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+            <div class="col-sm-2">
+                <input ng-model="tabelaPessoa.data.origem.entidade.dataNascimento" class="form-control input-sm" type="text" dtn-date placeholder="__/__/____" auto-tab-to="pessoa_rg" id="pessoa_dataNascimento" maxlength="10"/>
+            </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-4 control-label">{{'pessoa.label.rg'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+            <div class="col-sm-3">
+                <input ng-model="tabelaPessoa.data.documentoIdentificacao.entidade.numeroDocumento" class="form-control input-sm" type="text" maxlength="14" auto-tab-to="pessoa_tipoDoc" id="pessoa_rg" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">{{'pessoa.label.tipoDocumento'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+            <div class="col-md-4">
+                <select ng-disabled="page == 'view' || page == 'edit'" ng-model="tabelaPessoa.data.documentoIdentificacao.entidade.tipoDocumento" ng-change="buscarOrgaoEmissor()" class="form-control input-md" id="pessoa_tipoDoc">
+                    <option value="">Selecione</option>
+                    <option ng-value="item.object"  ng-selected="item.value == tabelaPessoa.data.documentoIdentificacao.entidade.tipoDocumento" ng-repeat="item in tipoDocumentoSelect">{{item.label}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">       
+            <label class="col-md-4 control-label">{{'pessoa.label.orgaoEmissorEnumRG'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+            <div class="col-md-4">                  
+                <select ng-model="tabelaPessoa.data.documentoIdentificacao.entidade.orgaoEmissao" class="form-control input-md" ng-disabled="!tabelaPessoa.data.documentoIdentificacao.entidade.tipoDocumento">
+                    <option value="">Selecione</option>
+                    <option ng-value="item.object" ng-selected="item.value == tabelaPessoa.data.documentoIdentificacao.entidade.orgaoEmissao" ng-repeat="item in orgaoEmissaoSelect">{{item.label}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">  
+            <label class="col-md-4 control-label">{{'pessoa.label.estadoEmissorEnumRG'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+            <div class="col-md-4">  
+                <select ng-model="tabelaPessoa.data.documentoIdentificacao.entidade.estadoEmissao" class="form-control input-md">
+                    <option value="">Selecione</option>
+                    <option ng-value="item.object" ng-selected="item.value == tabelaPessoa.data.documentoIdentificacao.entidade.estadoEmissao" ng-repeat="item in estadoEmissaoSelect">{{item.label}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">{{'pessoa.label.email'| i18next}}</label>  
+            <div class="col-sm-5">
+                <input ng-model="tabelaPessoa.data.contato.email" class="form-control input-sm" type="text" id="pessoa_email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">{{'pessoa.label.telefone'| i18next}}</label>  
+            <div class="col-sm-3">
+                <input ng-model="tabelaPessoa.data.contato.telefone" class="form-control input-sm" type="text" dtn-telefone maxlength="15"/>
+            </div>
+        </div>
+        <label class="col-md-4 control-label">{{'pessoa.label.tipoContato'| i18next}}</label>  
+        <div class="col-md-4">
+            <select ng-disabled="page == 'view' || page == 'edit'" ng-model="tabelaPessoa.data.contato.tipoTelefone" class="form-control input-md">
+                <option value="">Selecione</option>
+                <option ng-value="item.value" ng-selected="item.value == tabelaPessoa.data.contato.tipoTelefone" ng-repeat="item in tipoContatoSelect">{{item.label}}</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()" ng-disabled="validarForm()">Continuar</button>
+    <button class="btn btn-danger" ng-click="cancel()">Voltar</button>
+</div>

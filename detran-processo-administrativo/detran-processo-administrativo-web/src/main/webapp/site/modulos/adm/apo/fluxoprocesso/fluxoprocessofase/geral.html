@@ -1,0 +1,33 @@
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'fluxoprocessofase.label.descricao' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>    
+    <div class="col-xs-5">
+        <input ng-model="data.entidade.faseProcessoAdm" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"
+               ui-keypress="{ enter: 'faseProcessoAdmDescricaoModal($event)' }" 
+               ui-event="{ dblclick : 'faseProcessoAdmDescricaoModal($event)' }"
+               ng-disabled="!novo || edit"
+               ng-model="$parent.dataModal.faseProcessoAdmDescricaoValue" 
+               class="form-control input-md" type="text" maxlength="50" 
+               dtn-uppercase-symbols>
+               <script> </script>
+    </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'fluxoprocessofase.label.prioridade' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-1">
+        <input ng-disabled="!novo && !edit"
+               ng-model="data.entidade.prioridade"
+               class="form-control input-md"
+               type="text"
+               maxlength="2"
+               dtn-number >
+    </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-xs-2 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

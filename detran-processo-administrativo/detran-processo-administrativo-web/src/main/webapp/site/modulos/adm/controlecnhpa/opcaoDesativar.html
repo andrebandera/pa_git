@@ -1,0 +1,18 @@
+
+<div class="modal-header dialog-header-confirm">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title">
+        <span class="glyphicon glyphicon-check"></span>{{header | i18next}}
+    Cancelar
+    </h4>
+</div>
+<!--<div class="modal-body" ng-bind-html="msg"></div>-->
+<div class="modal-body">
+
+        <div ng-include="urlPartials + 'controlecnh/opcaoDesativar.html'"></div> <!-- list -->
+   
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-{{'global.btn.yes.btn' | i18next}}" ng-disabled="!data.entidade.motivo" ng-click="ok()">{{'global.btn.yes.title' | i18next}}</button>
+    <button type="button" class="btn btn-{{'global.btn.no.btn' | i18next}}" ng-click="cancel()">{{'global.btn.no.title' | i18next}}</button>
+</div>

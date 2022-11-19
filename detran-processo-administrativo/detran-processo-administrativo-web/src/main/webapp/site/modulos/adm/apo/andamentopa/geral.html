@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'andamentopa.label.descricao' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-sm-4">
+        <input ng-disabled="page == 'view'"
+               ng-model="data.entidade.descricao" class="form-control input-sm" 
+               maxlength="250"
+               dtn-uppercase>
+    </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn.html'"></div>
+</div>

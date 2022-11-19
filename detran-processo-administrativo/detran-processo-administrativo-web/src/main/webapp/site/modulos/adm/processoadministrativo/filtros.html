@@ -1,0 +1,98 @@
+<div class="col-xs-3 width_auto">
+    <label class="control-label">{{'processoadministrativo.label.cpf' | i18next}}</label>  
+    <input id="processoAdministrativoFiltrosCpf"
+           ui-keypress="{ enter: 'pesquisar()' }" 
+           ng-model="$parent.filtros.data.cpf" 
+           class="form-control input-sm" 
+           type="text" 
+           dtn-number 
+           ui-mask="999.999.999-99"
+           />
+</div>
+
+<div class="col-xs-3 width_auto">
+    <label class="control-label">{{'processoadministrativo.label.cnh' | i18next}}</label>  
+    <input id="processoAdministrativoFiltrosCnh"
+           ui-keypress="{ enter: 'pesquisar()' }" 
+           ng-model="$parent.filtros.data.cnh" 
+           class="form-control input-sm" 
+           type="text" 
+           maxlength="30" 
+           dtn-number />
+</div>
+
+<div class="col-xs-3">
+    <label class="control-label">{{'processoadministrativo.label.tipo' | i18next}}</label>  
+    <select id="processoAdministrativoFiltrostipo"
+            ng-model="filtros.data.tipo"
+            class="form-control input-xs">  
+            <option value="">Selecione</option>
+            <option ng-value="item.value" 
+                    ng-selected="item.value === filtros.data.tipo"
+                    ng-repeat="item in tipoSelect">{{item.label}}</option>
+    </select>
+</div>
+
+<div class="col-xs-3 width_auto">
+    <label class="control-label">{{'processoadministrativo.label.numeroProcesso' | i18next}}</label>  
+    <input id="processoAdministrativoFiltrosnumeroProcesso"
+           ui-keypress="{ enter: 'pesquisar()' }" 
+           ng-model="$parent.filtros.data.numeroProcesso" 
+           class="form-control input-sm" 
+           type="text"
+           maxlength="11"/>
+</div>
+
+<div class="col-xs-3 width_auto">
+    <label class="control-label">{{'processoadministrativo.label.numeroPortaria' | i18next}}</label>  
+    <input id="processoAdministrativoFiltrosnumeroPortaria"
+           ui-keypress="{ enter: 'pesquisar()' }" 
+           ng-model="$parent.filtros.data.numeroPortaria" 
+           class="form-control input-sm" 
+           type="text" 
+           maxlength="11"/>
+</div>
+
+<div class="col-xs-2 width_auto">
+	<label class="control-label">{{'processoadministrativo.label.dataProcessamento' | i18next}}</label>  
+	<input id="processoAdministrativoFiltrosdataProcessamento"
+               ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="filtros.data.dataProcessamento"
+               class="form-control"
+               type="text"
+               size="11"
+               maxlength="10"
+               dtn-datepicker >
+</div>
+
+<div class="col-xs-3 width_auto">
+    <label class="control-label">{{'processoadministrativo.label.andamento' | i18next}}</label>  
+    <select ng-model="$parent.filtros.data.andamento" class="form-control input-sm">
+        <option value="">Selecione</option>
+        <option ng-value="item.object" 
+                ng-selected="item.value === filtros.data.andamento" 
+                ng-repeat="item in andamentoSelect">{{item.label}}</option>
+    </select>
+</div>
+
+<div class="col-xs-3 width_auto">
+    <label class="control-label">{{'processoadministrativo.label.cenario' | i18next}}</label>  
+    <select ng-model="$parent.filtros.data.cenario" class="form-control input-sm">
+        <option value="">Selecione</option>
+        <option ng-value="item.object" 
+                ng-selected="item.value === filtros.data.cenario" 
+                ng-repeat="item in cenarioSelect">{{item.label}}</option>
+    </select>
+</div>
+
+<div class="col-xs-3">
+    <label class="control-label">{{'processoadministrativo.label.origem' | i18next}}</label>  
+    <select id="processoAdministrativoFiltrosOrigem"
+            ng-model="filtros.data.origem"
+            class="form-control input-xs">  
+            <option value="">Selecione</option>
+            <option ng-value="item.value" 
+                    ng-selected="item.value === filtros.data.origem"
+                    ng-repeat="item in origemSelect">{{item.label}}</option>
+    </select>
+</div>

@@ -1,0 +1,16 @@
+<div class="modal-header dialog-header-confirm">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title"><span class="glyphicon glyphicon-check"></span>{{header | i18next}}Confirmar Movimentação</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group col-md-12">
+        <h5>
+            As alterações aplicadas não poderão ser desfeitas. Deseja fazer a movimentação do Processo Administrativo?
+        </h5>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-{{'global.btn.yes.btn' | i18next}}" ng-click="ok()">{{'global.btn.yes.title' | i18next}}</button>
+    <button type="button" class="btn btn-{{'global.btn.no.btn' | i18next}}" ng-click="cancel()">{{'global.btn.no.title' | i18next}}</button>
+</div>

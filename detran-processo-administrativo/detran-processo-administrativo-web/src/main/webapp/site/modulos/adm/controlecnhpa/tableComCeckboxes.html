@@ -1,0 +1,50 @@
+<table class="table table-hover table-striped table-condensed table-bordered table-responsive margin-t-15">
+    <caption class="text-left">
+        <span ng-if="showSelectAllCheckboxes && conteudo.length>0">
+            <i ng-attr-title="{{'detran.global.grid.selecionarDesselecionarTodosDaLista' | i18next}}" 
+               class="pointer glyphicon" ng-class="(data.selAll) ? 'glyphicon-check' : 'glyphicon-unchecked'"></i>
+            <label class="control-label pointer" ng-click="addRemoveAllCheckboxesLista()"  ng-if="data.selAll">{{'detran.global.grid.desselecionarTodos' | i18next}}</label>
+            <label class="control-label pointer" ng-click="addRemoveAllCheckboxesLista()"  ng-if="!data.selAll">{{'detran.global.grid.selecionarTodos' | i18next}}</label>
+        </span>
+    </caption>
+    <thead>
+        <tr>
+            <th>
+                <i ng-if="conteudo.length>0 &&  showSelectAllCheckboxesPage" ng-attr-title="{{'detran.global.grid.selecionarDesselecionarTodosDaPagina' | i18next}}" class="glyphicon glyphicon-{{(data.selAll || checkUncheckAllCheckboxesPage()) ? 'check' : 'unchecked' }} pointer" ng-click="addRemoveAllCheckboxesPage()"></i>
+            </th>
+            <th ng-repeat="item in model" ng-if="!item.hidden">
+                <span>{{item.displayName| i18next}}</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="linha in conteudo | filter:search">
+            <td ng-repeat="celula in linha" class="{{celula.hidden && celula.field != 'checkbox'  ? celula.hidden : '' }} text-center {{celula.field == 'actions' ? 'actions' : '' }} "
+                ng-if="celula.field != 'id'" ng-init="checkboxValuePosition = celula.checkboxValuePosition || 0" >
+                <div ng-if="celula.field == 'checkbox'">
+                    <input type="checkbox" name="sel[]" class="checkbox{{config.name}}" ng-init="addSelCheckboxes(linha[celula.checkboxValuePosition].value)"
+                           ng-click="addRemoveCheckboxes(linha[celula.checkboxValuePosition].value)"
+                           ng-disabled="data.selAll || (item.name == 'cancelar') || checkButtonDisabled({button: item, linha: linha})"
+                           ng-checked="data.selAll || data.selection.indexOf(linha[celula.checkboxValuePosition].value) > -1"
+                           ng-value="linha[celula.checkboxValuePosition].value" />
+
+                </div>
+                <div ng-if="celula.field != 'actions'">
+                    {{celula.value}}
+                </div>
+                <div ng-if="celula.field == 'actions'">
+                    <div ng-repeat="item in celula.value" switch-buttons button="item.name">
+                        <button title="{{item.title| i18next}}" class="btn-{{item.btn| i18next}} btn btn-sm" 
+                           href="" ng-click="action(item.name, linha)" ng-disabled="(item.name == 'cancelar') || checkButtonDisabled({button: item, linha: linha})"
+                           ng-switch on="item.typeicon">
+                                <i ng-switch-when="fa" class="fa fa-{{item.icon | i18next}}"></i>
+                                <i ng-switch-default class="glyphicon glyphicon-{{item.icon | i18next}}"></i>
+                        </button>
+                    </div>
+                </div>
+                <br clear="all" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+

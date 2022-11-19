@@ -1,0 +1,38 @@
+<fieldset class="customFieldset" ng-if="(data.entidade.movimentacaoAcao != 'SUSPENDER' 
+                                            && data.entidade.movimentacaoAcao != 'RETIRAR_SUSPENSAO') 
+                                            && (data.entidade.motivo != 'PENA_CUMPRIDA')
+                                            && data.processoAdministrativo.cpf">
+    
+    <legend>Infrações</legend>
+    <div class="form-group col-xs-12 margin-t-20">
+        <table  ng-if="data.listaInfracoes.length > 0" class="table table-hover table-striped table-condensed table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th class="col-xs-4">N. Auto</th>
+                    <th class="col-xs-2">Código</th>
+                    <th class="col-xs-4">Descrição</th>
+                    <th class="col-xs-4">Data</th>
+                    <th class="col-xs-4">Pontos</th>
+                    <th class="col-xs-4">Reativar Infração?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in data.listaInfracoes">
+                    <td>{{item.entidade.autoInfracao}}</td>
+                    <td>{{item.entidade.codigoInfracao}}</td>
+                    <td>{{item.descricaoInfracao}}</td>
+                    <td>{{item.entidade.dataInfracao}}</td>
+                    <td>{{item.entidade.quantidadePontosInfracao}}</td>
+                    <td class="actions">
+                        <button ng-disabled="item.reativarPontuacao" class="btn btn-sm btn-primary" ng-click="reativarInfracao(item, true)">
+                            <i class="glyphicon glyphicon-check"></i>
+                        </button>
+                        <button ng-disabled="!item.reativarPontuacao" class="btn btn-sm btn-danger" ng-click="reativarInfracao(item, false)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</fieldset>

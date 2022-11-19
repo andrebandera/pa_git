@@ -1,0 +1,26 @@
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'servicoexterno.label.nome'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-7">
+        <input ng-disabled="page == 'view' || page == 'edit'"
+               ng-model="data.entidade.nome"
+               class="form-control input-sm"
+               type="text"
+               maxlength="50">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'servicoexterno.label.descricao'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-7">
+        <textarea ng-disabled="page == 'view' || page == 'edit'"
+               ng-model="data.entidade.descricao"
+               class="form-control input-sm"
+               type="text"
+               maxlength="200"></textarea>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-e control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn.html'"></div>
+</div>

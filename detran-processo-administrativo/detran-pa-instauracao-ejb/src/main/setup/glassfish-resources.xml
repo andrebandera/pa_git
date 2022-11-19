@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+
+    <jdbc-connection-pool datasource-classname="com.microsoft.sqlserver.jdbc.SQLServerDataSource" 
+                          idle-timeout-in-seconds="300" 
+                          max-pool-size="2000" 
+                          max-wait-time-in-millis="60000" 
+                          name="detranPAPool" 
+                          pool-resize-quantity="10" 
+                          res-type="javax.sql.DataSource" 
+                          steady-pool-size="300">
+        <property name="ServerName" value="10.9.23.93"></property>
+        <property name="DatabaseName" value="DB_HOMOLOGACAO"></property>
+        <!--<property name="DatabaseName" value="DB_PRE_HOMOLOGACAO"></property>-->
+        <!--<property name="DatabaseName" value="DB_PRE_PRODUCAO"></property>-->
+        <property name="PortNumber" value="1433"></property>
+        <property name="User" value="usr-db-pa"/>
+        <property name="Password" value="${ALIAS=pwd-usr-db-pa}"/>
+    </jdbc-connection-pool>
+    <jdbc-resource enabled="true" jndi-name="jdbc/detranPA" pool-name="detranPAPool"></jdbc-resource>
+
+    <!-- Instaurar Processo Administrativo -->
+    <admin-object-resource enabled="true" jndi-name="jms/instaurarprocessoadministrativoQueue"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="instaurarPhysicalQueue"/>
+    </admin-object-resource>
+    <connector-connection-pool 
+                name="jms/instaurarprocessoadministrativoFactoryPool" max-pool-size="2000" pool-resize-quantity="10" 
+                max-wait-time-in-millis="60000" steady-pool-size="500" idle-timeout-in-seconds="600" 
+                connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/instaurarprocessoadministrativoConnectionFactory" pool-name="jms/instaurarprocessoadministrativoFactoryPool"/>
+
+</resources>

@@ -1,0 +1,78 @@
+
+<div class="form-group row">
+    
+    <div class="col-xs-3 width_auto">
+        <label class="control-label">{{'lotenotificacao.label.numeroProcesso' | i18next}}</label>  
+        <input ui-keypress="{ enter: 'pesquisar()' }" 
+               ng-model="filtros.data.numeroProcesso" 
+               class="form-control input-sm" 
+               type="text"
+               maxlength="11"/>
+    </div>
+
+    <div class="col-xs-3 width_auto">
+        <label class="control-label">{{'lotenotificacao.label.numeroNotificacao' | i18next}}</label>  
+        <input ui-keypress="{ enter: 'pesquisar()' }" 
+               ng-model="filtros.data.numeroNotificacao" 
+               class="form-control input-sm" 
+               type="text" 
+               maxlength="11"/>
+    </div>
+    
+    <div class="col-xs-2 width_auto">
+            <label class="control-label">{{'lotenotificacao.label.dataInicio' | i18next}}</label>
+            <input     ui-keypress="{ enter: 'pesquisar()' }"
+                   ng-model="filtros.data.dataInicio"
+                   class="form-control"
+                   type="text"
+                   size="11"
+                   maxlength="10"
+                   dtn-datepicker >
+    </div>
+
+    <div class="col-xs-2 width_auto">
+            <label class="control-label">{{'lotenotificacao.label.dataFim' | i18next}}</label>
+            <input     ui-keypress="{ enter: 'pesquisar()' }"
+                   ng-model="filtros.data.dataFim"
+                   class="form-control"
+                   type="text"
+                   size="11"
+                   maxlength="10"
+                   dtn-datepicker >
+    </div>
+</div>
+
+<div class="form-group row">
+
+    <div class="col-xs-4 ">
+        <label class="control-label">{{'lotenotificacao.label.nome' | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="$parent.filtros.data.nome"
+               class="form-control input-sm" 
+               type="text" 
+               dtn-letramaiuscula
+               maxLength="60"
+               />
+    </div>
+
+    <div class="col-xs-3 width_auto">
+        <label class="control-label">{{'lotenotificacao.label.objetoCorreios' | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="$parent.filtros.data.objetoCorreios"
+               class="form-control input-sm" 
+               type="text" 
+               maxlength="16"
+               dtn-letramaiuscula />
+    </div>
+
+    <div class="col-xs-3">
+        <label class="control-label">{{'lotenotificacao.label.tipo' | i18next}}</label>
+        <select ng-model="filtros.data.tipo"
+                class="form-control input-xs">  
+                <option value="">Selecione</option>
+                <option ng-value="item.value" 
+                        ng-selected="item.value === filtros.data.tipo"
+                        ng-repeat="item in tipoSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>

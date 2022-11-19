@@ -1,0 +1,18 @@
+<div class="form-group">
+<label class="col-xs-2 control-label">{{"fluxofaseretorno.label.fluxoRetorno"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-5">
+        <input ng-model="data.entidade.fluxoRetorno" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'fluxoRetornoModal()' }" 
+               ui-event="{dblclick : 'fluxoRetornoModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.fluxoRetorno"
+               class="form-control input-md" type="text" maxlength="50"
+               dtn-uppercase-symbols>
+    </div>
+</div>
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

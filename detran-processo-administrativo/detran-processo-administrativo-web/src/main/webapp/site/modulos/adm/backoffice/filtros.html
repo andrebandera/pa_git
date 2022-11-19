@@ -1,0 +1,90 @@
+<div class="form-group row">
+
+    <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'backoffice.label.protocolo' | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="$parent.filtros.data.protocolo"
+               class="form-control input-sm"
+               type="text"
+               maxlength="10"
+               dtn-letramaiuscula>
+    </div>
+
+    <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'backoffice.label.numeroProcesso' | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="$parent.filtros.data.numeroProcesso"
+               class="form-control input-sm"
+               type="text"
+               maxlength="11"
+               dtn-letramaiuscula>
+    </div>
+
+    <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'backoffice.label.cpf' | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="$parent.filtros.data.cpf"
+               class="form-control input-sm"
+               type="text" dtn-maskcpfcnpj
+               maxlength="14"
+               dtn-letramaiuscula>
+    </div>
+    
+    <div ng-if="destinoRecursoSelect.length > 0" class="col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'backoffice.label.destinoRecurso' | i18next}}</label>
+        <select ng-model="$parent.filtros.data.destinoRecurso" class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value === filtros.data.destinoRecurso"
+                    ng-repeat="item in destinoRecursoSelect">{{item.label}}
+            </option>
+        </select>
+    </div>
+
+    <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'backoffice.label.tipoRecurso' | i18next}}</label>
+        <select ng-model="$parent.filtros.data.tipoRecurso" class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value === filtros.data.tipoRecurso"
+                    ng-repeat="item in tipoRecursoSelect">{{item.label}}
+            </option>
+        </select>
+    </div>
+
+    <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'modulo.global.label.ativoLabel' | i18next}}</label>
+        <select ng-model="$parent.filtros.data.situacao" class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value === filtros.data.situacao"
+                    ng-repeat="item in situacaoSelect">{{item.label}}
+            </option>
+        </select>
+    </div>
+
+
+    <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'backoffice.label.dataInicio' | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="filtros.data.dataInicio"
+               class="form-control"
+               type="text"
+               size="11"
+               maxlength="10"
+               dtn-datepicker>
+    </div>
+
+    <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 width_auto">
+        <label class="control-label">{{'backoffice.label.dataFim' | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisar()' }"
+               ng-model="filtros.data.dataFim"
+               class="form-control"
+               type="text"
+               size="11"
+               maxlength="10"
+               dtn-datepicker>
+    </div>
+
+
+</div>

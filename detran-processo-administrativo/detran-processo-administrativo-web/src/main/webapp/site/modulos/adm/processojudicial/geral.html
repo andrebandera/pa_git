@@ -1,0 +1,354 @@
+<div class="form-group row">
+    <label class="col-xs-1 control-label" >{{'processojudicial.label.cpf'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-3  width_auto">
+        <input ng-disabled="page == 'view'" 
+               ng-model="criteria.cpf" 
+               ng-change="cpfProcessoJudicialChanged()"
+               class="form-control input-sm"
+               type="text"
+               dtn-number 
+               size="15"
+               ui-mask="999.999.999-99" />
+
+    </div>
+
+    <div class="col-xs-1">
+        <a ng-if="!existePessoaNoSistema && buscaRealizada" 
+           class="glyphicon glyphicon-plus-sign icon-large green" 
+           ng-click="newPessoa()" title="Adicionar nova Pessoa"></a>
+    </div>
+
+
+    <div class="col-xs-2">
+        <input type ="button"   class="btn btn-{{'global.btn.salvar.btn'| i18next}}"
+               ng-click="buscarProcessos(criteria.cpf)"
+               ng-disabled="!criteria.cpf"
+               value="Buscar Processos" />
+    </div>
+
+</div>
+
+<fieldset class="customFieldset" >
+    
+    <legend>Processos Administrativos</legend>
+    <div ng-if="hasDataTabelaProcessosParaProcessoJuridico" 
+         detran-table 
+         action-buttons="actionButtons" 
+         my-name="processosTabelaProcessosParaProcessoJuridico" 
+         config="configTabelaProcessosParaProcessoJuridico" >
+    </div>
+</fieldset>
+
+<div class="col-xs-12 bg-danger" ng-if="cnhEntregue" align="center">
+    <label class="control-label">{{'processojudicial.label.msgCnhEntregue'| i18next}}</label>
+    <p>CNH do condutor está no DETRAN.</p>
+</div>
+
+<div class="form-group">
+    
+    <fieldset class="customFieldset" >
+        <legend>Dados Processo Judicial</legend>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.tipoDocumento' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.tipoDocumento" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            ng-change="tipoDocumentoPJUChanged()"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.object" 
+                                    ng-selected="item.value == data.tipoDocumento.id" 
+                                    ng-repeat="item in tipoDocumentoSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicial.label.valorDocumento'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema || bloquearValorDocumentoPju" 
+                           ng-model="data.entidade.valorDocumento" 
+                           class="form-control input-sm"
+                           maxlength="50"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.parte' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.entidade.parteProcessoJuridico" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema || data.isCondutor"
+                            ng-change="parteProcessoJuridicoChanged()"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.parteProcessoJuridico" 
+                                    ng-repeat="item in parteSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicial.label.formularioRenach'| i18next}}</label>  
+                    <input ng-disabled="page == 'view' || data.entidade.parteProcessoJuridico != 'CANDIDATO' || !existePessoaNoSistema" 
+                           ng-model="data.entidade.formularioRenach" 
+                           class="form-control input-sm"
+                           dtn-letramaiuscula
+                           ui-mask="AA999999999"
+                           maxlength="50"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.tipoMedida' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.entidade.tipoMedida" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.tipoMedida" 
+                                    ng-repeat="item in tipoMedidaSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicial.label.valorAutos'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>  
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema" 
+                           ng-model="data.entidade.valorAutos" 
+                           class="form-control input-sm"
+                           maxlength="50"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.tribunal' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.tribunal" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            ng-change="buscarOrgaoJudicial()"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.object" 
+                                    ng-selected="item.value == data.tribunal.id" 
+                                    ng-repeat="item in tribunalSelect">{{item.label}}</option>
+                    </select>
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.orgaoJudicial' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.orgaoJudicialEntidade" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.object" 
+                                    ng-selected="item.value == data.orgaoJudicialEntidade.id" 
+                                    ng-repeat="item in orgaoJudicialSelect">{{item.label}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicial.label.orgaoBca' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.orgaoBcaEntidade" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.object" 
+                                    ng-selected="item.value == data.orgaoBcaEntidade.id" 
+                                    ng-repeat="item in orgaoBcaSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicial.label.requisitoCursoBloqueio' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.entidade.requisitoCursoBloqueio" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema|| data.entidade.parteProcessoJuridico != 'CONDUTOR'"
+                            ng-change="alteraTipoProcesso()"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.requisitoCursoBloqueio" 
+                                    ng-repeat="item in requisitoCursoBloqueioSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicial.label.unidadePenal' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.unidadePenal" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicial.label.indicativoPrazoIndeterminado'| i18next}}</label>  
+                    <select ng-model="data.entidade.indicativoPrazoIndeterminado" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            ng-change="prazoIndetermindadoProcessoJuridicoChanged()"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.indicativoPrazoIndeterminado" 
+                                    ng-repeat="item in prazoIndeterminadoSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-6" ng-show="data.entidade.indicativoPrazoIndeterminado == 'NAO'">
+                    <label class="control-label" >{{'processojudicial.label.prazoPenalidade'| i18next}}</label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema" 
+                           ng-model="data.entidade.prazoPenalidade" 
+                           dtn-number 
+                           class="form-control input-sm"
+                           maxlength="4"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicial.label.identificacaoRecolhimentoCnh' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.entidade.identificacaoRecolhimentoCnh" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema || cnhEntregue || data.entidade.parteProcessoJuridico != 'CONDUTOR'"
+                            ng-change="identificacaoRecolhimentoCnhPJUChanged()"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.identificacaoRecolhimentoCnh" 
+                                    ng-repeat="item in identificacaoRecolhimentoCnhSelect">{{item.label}}</option>
+                    </select>
+                </div>
+                
+                <div class="col-xs-4" ng-show="data.entidade.identificacaoRecolhimentoCnh == 'DETRAN' || data.entidade.identificacaoRecolhimentoCnh == 'CARTORIO_JUDICIARIO' || data.entidade.parteProcessoJuridico != 'CONDUTOR'">
+                    <label class="control-label">{{'processojudicial.label.dataInicioPenalidade' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema || bloqueiaDataInicio"
+                           ng-model="data.entidade.dataInicioPenalidade" 
+                           type="text"
+                           class="form-control input-md" 
+                           maxlength="10" 
+                           dtn-datepicker />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicial.label.dataEntregaCnh' | i18next}}
+                        <span ng-hide="page == 'view' || !existePessoaNoSistema || data.entidade.identificacaoRecolhimentoCnh == 'INEXISTENTE'" class="obrigatorio" title="Obrigatório">*</span>
+                    </label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema || data.entidade.identificacaoRecolhimentoCnh == 'INEXISTENTE' || cnhEntregue"
+                           ng-model="data.entidade.dataEntrega" 
+                           type="text"
+                           class="form-control input-md" 
+                           maxlength="10" 
+                           dtn-datepicker />
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicial.label.dataBloqueio' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema"
+                           ng-model="data.entidade.dataBloqueio" 
+                           type="text"
+                           class="form-control input-md" 
+                           maxlength="10" 
+                           dtn-datepicker />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-10">
+                    <label class="control-label" >{{'processojudicial.label.observacao'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema" 
+                           ng-model="data.entidade.observacao" 
+                           class="form-control input-sm"
+                           maxlength="250"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.identificacaoDelito' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.entidade.identificacaoDelito" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.identificacaoDelito" 
+                                    ng-repeat="item in identificacaoDelitoSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.tipoProcesso' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.tipoProcesso" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema || desabilitaTipoProcesso"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.tipoProcesso" 
+                                    ng-repeat="item in tipoProcessoSelect">{{item.label}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicial.label.segredoJustica' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.entidade.segredoJustica" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.segredoJustica" 
+                                    ng-repeat="item in segredoJusticaSelect">{{item.label}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-6"ng-show="data.entidade.requisitoCursoBloqueio && data.entidade.requisitoCursoBloqueio !='SEM_CURSO'">
+                    <label class="control-label">{{'processojudicial.label.indicativoProva' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <select ng-model="data.entidade.indicativoProva" 
+                            ng-disabled="page == 'view' || !existePessoaNoSistema "
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == data.entidade.indicativoProva" 
+                                    ng-repeat="item in indicativoProvaSelect">{{item.label}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-4 control-label"></label>  
+    <div>
+        <a class="btn btn-{{'global.btn.salvar.btn' | i18next}}" ng-click="preSave()">{{'global.btn.salvar.titulo' | i18next}}</a>
+
+        <a ng-click="new()" class="btn btn-{{'global.btn.novo.btn' | i18next}} margin-r-5">{{'global.btn.novo.titulo' | i18next}}</a>
+    </div>
+</div>

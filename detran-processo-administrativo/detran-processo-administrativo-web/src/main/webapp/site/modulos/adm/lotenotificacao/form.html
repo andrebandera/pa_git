@@ -1,0 +1,14 @@
+<form class="form-horizontal row">
+    <div ng-include="filesPath('cabecalho.html')"></div>
+    <tabset>
+        <tab heading="Geral">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+        
+            <tab ng-click="tabClick('notificacaolote')" heading="Notificações" >
+            <div ng-include="filesPath('notificacaolote/index.html')"></div>
+        </tab>
+
+    </tabset>
+</form>

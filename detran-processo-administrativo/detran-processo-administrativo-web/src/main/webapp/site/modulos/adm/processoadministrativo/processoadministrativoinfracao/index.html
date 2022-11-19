@@ -1,0 +1,21 @@
+<div class="odd" ng-controller="processoadministrativoinfracaoCtrl">
+    <div class="clearfix"></div>
+    
+    <div class="row small margin-5">
+    <div class="col-xs-12">
+        <span class="pull-right margin-t-20" ng-if="hasData">
+            Total Pontos: <span class="label label-default">{{total}}</span>
+        </span>
+    </div>
+</div>
+    
+    <div ng-if="hasData" detran-table config="config" params="mestreID" action-buttons="actionButtons" my-name="processoadministrativoinfracao"></div>
+
+    <tabset>
+        <tab heading="Geral" ng-show="showTabs">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+    </tabset>
+    
+</div>

@@ -1,0 +1,22 @@
+<!-- Código input-->
+<div class="col-sm-2">
+	<label class="control-label">{{ 'statusandamento.label.codigo' | i18next }}</label>  
+    <input ui-keypress="{ enter: 'pesquisar()' }" ng-model="$parent.filtros.data.codigo" class="form-control input-sm"  maxlength="9" dtn-number>
+</div>
+<!-- Descrição input-->
+<div class="col-sm-4">
+	<label class="control-label">
+		{{ 'statusandamento.label.descricao' | i18next }}
+	</label>  
+    <input ui-keypress="{ enter: 'pesquisar()' }" ng-model="$parent.filtros.data.descricao" class="form-control input-sm" type="text" maxlength="250" dtn-uppercase>
+</div>
+<!-- Situação Select -->
+<div class="col-sm-2">
+    <label class="control-label">{{'modulo.global.label.ativoLabel' | i18next}}</label>  
+    <select ng-model="filtros.data.ativo" class="form-control input-sm">
+        <option value="">Selecione</option>
+        <option ng-value="item.value"
+                ng-selected="item.value === filtros.data.ativo"
+                ng-repeat="item in ativoSelect">{{item.label}}</option>
+    </select>
+</div>

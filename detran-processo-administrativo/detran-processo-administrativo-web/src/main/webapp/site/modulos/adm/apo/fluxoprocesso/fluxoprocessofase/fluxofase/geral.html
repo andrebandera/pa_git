@@ -1,0 +1,50 @@
+<div class="form-group">
+    
+    <label class="col-xs-2 control-label">
+        {{'fluxoprocessofase.label.descricao' | i18next}} 
+        <span class="obrigatorio" title="Obrigatório">*</span>
+    </label>    
+    <div class="col-xs-5">
+        <input ng-model="data.entidade.andamentoProcesso" type="hidden" value="" />
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"
+               ui-keypress="{ enter: 'andamentoProcessoDescricaoModal($event)' }" 
+               ui-event="{ dblclick : 'andamentoProcessoDescricaoModal($event)' }"
+               ng-disabled="!novo || edit"
+               ng-model="$parent.dataModal.andamentoProcessoDescricaoValue" 
+               class="form-control input-md" type="text" maxlength="50" 
+               dtn-uppercase-symbols />
+    </div>
+    
+    <label class="col-xs-2 control-label">{{'fluxoprocessofase.label.prioridade' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-1">
+        <input ng-disabled="!novo && !edit"
+               ng-model="data.entidade.prioridade"
+               class="form-control input-md"
+               type="text"
+               maxlength="2"
+               dtn-number />
+    </div>
+    
+</div>
+
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'fluxofase.label.tipoAndamento'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-5">
+        <select ng-model="data.entidade.tipoAndamento"
+                class="form-control input-md"
+                ng-disabled="!novo && !edit">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-repeat="item in tipoAndamentoSelect">{{item.label}}
+            </option>
+        </select>
+    </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-md-5 col-xs-2 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>
+
+<!--D Continuando com a desativação, todos os andamentos vinculados nesta fase também serão desativados. Deseja continuar com a Desativação? >

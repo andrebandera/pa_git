@@ -1,0 +1,47 @@
+<div class="col-xs-12">
+    <div class="odd margin-b-20">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="javascript:;">{{'fluxoprocesso.label.amparoLegal'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="form-group">
+                <div class="margin-20">
+                    <button ng-if="page != 'view'" ng-click="amparoLegalModal()" class="btn btn-md btn-{{'global.btn.confirmar.btn' | i18next}} margin-r-5">{{'fluxoprocesso.amparoLegal.selecionar' | i18next}}</button>
+                </div>
+                <div class="col-xs-12">
+                <dtn-readonly-group data="amparoLegal"></dtn-readonly-group>
+                <br clear="all" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="margin-30">
+    <label class="margin-0 control-label">{{'fluxoprocesso.label.descricao' | i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="margin-0">
+        <input ng-disabled="page == 'view'"
+               ng-model="data.entidade.descricao" class="form-control input-sm" 
+               maxlength="100"
+               dtn-uppercase>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'fluxoprocesso.label.fluxoIndependente'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-5">
+        <select ng-model="data.entidade.fluxoIndependente"
+                class="form-control input-sm"
+                ng-disabled="page == 'view'">
+                <option value="">Selecione</option>
+                <option ng-value="item.value"
+                        ng-repeat="item in fluxoIndependenteSelect">{{item.label}}
+                </option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-5 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn.html'"></div>
+</div>

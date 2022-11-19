@@ -1,0 +1,117 @@
+<div class="form-group row">
+    <label class="col-xs-1 control-label" >{{'cnhcartorio.label.cpf'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-3  width_auto">
+        <input ng-disabled="page == 'view'" 
+               ng-model="criteria.cpf" 
+               ng-change="cpfProcessoJudicialChanged()"
+               class="form-control input-sm"
+               type="text"
+               dtn-number 
+               size="15"
+               ui-mask="999.999.999-99" />
+
+    </div>
+
+    <div class="col-xs-2">
+        <input type ="button"   class="btn btn-{{'global.btn.salvar.btn'| i18next}}"
+               ng-click="buscarProcessos(criteria.cpf)"
+               ng-disabled="!criteria.cpf"
+               value="Buscar Processos" />
+    </div>
+
+</div>
+
+<fieldset class="customFieldset" >
+
+    <legend>Processos Administrativos</legend>
+    <div ng-if="hasDataTabelaProcessosParaProcessoJuridico" 
+         detran-table 
+         action-buttons="actionButtons" 
+         my-name="processosTabelaProcessosParaProcessoJuridico" 
+         config="configTabelaProcessosParaProcessoJuridico" >
+    </div>
+</fieldset>
+
+<div class="form-group">
+
+    <fieldset class="customFieldset" >
+        <legend>Dados Processo Judicial</legend>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'cnhcartorio.label.identificacaoRecolhimentoCnh'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <input ng-readonly="true"
+                           value="Cartório"
+                           type="text"
+                           class="form-control input-md"/>
+                </div>
+                <div class="col-xs-4">
+                    <label class="control-label">{{'cnhcartorio.label.dataBloqueio'| i18next}}
+                        <span  class="obrigatorio" title="Obrigatório">*</span>
+                    </label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema"
+                           ng-model="data.entidade.dataBloqueio" 
+                           type="text"
+                           class="form-control input-md" 
+                           maxlength="10" 
+                           dtn-datepicker />
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="col-xs-4" >
+                    <label class="control-label">{{'cnhcartorio.label.dataInicioPenalidade'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema || bloqueiaDataInicio"
+                           ng-model="data.entidade.dataInicioPenalidade" 
+                           type="text"
+                           class="form-control input-md" 
+                           maxlength="10" 
+                           dtn-datepicker />
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="control-label">{{'cnhcartorio.label.dataEntregaCnh'| i18next}}
+                        <span  class="obrigatorio" title="Obrigatório">*</span>
+                    </label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema"
+                           ng-model="data.entidade.dataEntrega" 
+                           type="text"
+                           class="form-control input-md" 
+                           maxlength="10" 
+                           dtn-datepicker />
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-10">
+                    <label class="control-label" >{{'cnhcartorio.label.observacao'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+                    <input ng-disabled="page == 'view' || !existePessoaNoSistema" 
+                           ng-model="data.entidade.observacao" 
+                           class="form-control input-sm"
+                           maxlength="250"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-4 control-label"></label>  
+    <div>
+        <a class="btn btn-{{'global.btn.salvar.btn'| i18next}}" 
+           ng-disabled="validateForm()"
+           ng-click="preSave()">{{'global.btn.salvar.titulo'| i18next}}</a>
+
+        <a ng-click="inicializaVariaveis()" class="btn btn-{{'global.btn.novo.btn'| i18next}} margin-r-5">{{'global.btn.novo.titulo'| i18next}}</a>
+    </div>
+</div>
