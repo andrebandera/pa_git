@@ -1,0 +1,37 @@
+<div class="odd" ng-controller="fluxofaseCtrl">
+    <!--<div ng-include="urlPartials + 'criteriaDtl.html'"></div>  filtros -->
+    <!--<div class="clearfix"></div> -->
+    <div ng-if="hasData" detran-table config="config" params="mestreID" 
+         action-buttons="actionButtons" my-name="fluxofase"></div>
+
+    <!-- Tabs -->
+    <tabset>
+        <tab heading="Geral">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+       
+        <tab ng-click="tabClick('tipocorpoandamento')" ng-if="showTabs" heading="Tipo Corpo Andamento">
+            <div class="filtros-header detalhe-header">{{$parent.mestre.fluxoFase.andamentoProcesso.descricao}}</div>
+            <div ng-include="filesPath('tipocorpoandamento/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('fluxofaseretorno')" ng-if="showTabs" heading="Andamento Destino">
+            <div class="filtros-header detalhe-header">{{$parent.mestre.fluxoFase.andamentoProcesso.descricao}}</div>
+            <div ng-include="filesPath('fluxofaseretorno/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('fluxoandamento')" ng-if="showTabs" heading="Fluxo Destino">
+            <div class="filtros-header detalhe-header">{{$parent.mestre.fluxoFase.andamentoProcesso.descricao}}</div>
+            <div ng-include="filesPath('fluxoandamento/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('destinofase')" ng-if="showTabs" heading="Recurso Destino">
+            <div class="filtros-header detalhe-header">{{$parent.mestre.fluxoFase.andamentoProcesso.descricao}}</div>
+            <div ng-include="filesPath('destinofase/index.html')"></div>
+        </tab>
+    </tabset>
+
+</tabset>
+</div>
+

@@ -1,0 +1,57 @@
+<div class="form-group">
+    <label class="col-xs-3 control-label" for="id">{{'execucaoandamento.label.numeroProcesso'| i18next}}</label>  
+    <div class="col-xs-4" >
+        <input ng-model="data.executar.numeroProcesso" 
+            class="form-control input-xs" size="11" type="text" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label" for="id">{{'execucaoandamento.label.quantidadeLote'| i18next}}</label>  
+    <div class="col-xs-4" >
+        <input ng-model="data.executar.quantidadeLote" 
+               class="form-control input-xs" size="4" type="text" dtn-number maxlength="4"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'execucaoandamento.label.andamento' | i18next}}</label> 
+    <div class="col-xs-4" >
+        <select ng-model="data.executar.andamento" class="form-control input-xs col-xs-6 width_auto">
+            <option value="">Selecione</option>
+            <option ng-value="item.object" 
+                    ng-selected="item.value === data.executar.andamento" 
+                    ng-repeat="item in andamentoSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'execucaoandamento.label.tipoProcesso' | i18next}}</label> 
+    <div class="col-xs-4" >
+        <select ng-model="data.executar.tipoProcesso"
+                class="form-control input-sm">
+                <option value="">Selecione</option>
+                <option ng-value="item.value" 
+                        ng-selected="item.value === data.executar.tipoProcesso" 
+                        ng-repeat="item in tipoProcessoSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label" for="id">{{'execucaoandamento.label.usuarioAlteracaoLabel'| i18next}}</label>  
+    <div class="col-xs-4" >
+        <input ng-model="data.executar.usuarioAlteracao" 
+               class="form-control input-xs" type="text" maxlength="50"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label"></label>  
+    <div class="col-xs-6">
+        <a tabindex="997" id="btnGravar" ng-disabled=""
+           class="btn btn-{{'global.btn.salvar.btn' | i18next}}" 
+           ng-click="executarAndamento()">Executar</a>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="odd" ng-controller="processoadministrativohistoricoCtrl">
+    <div class="clearfix"></div>
+    <div ng-if="hasData" 
+         detran-table 
+         config="config" 
+         params="mestreID" 
+         action-buttons="actionButtons" 
+         my-name="processoadministrativohistorico">
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-xs-2 control-label"></label>  
+        <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+    </div>
+</div>

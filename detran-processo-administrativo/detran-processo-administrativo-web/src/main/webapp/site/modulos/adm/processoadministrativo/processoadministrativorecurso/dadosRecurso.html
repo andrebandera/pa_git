@@ -1,0 +1,50 @@
+<fieldset class="customFieldset">
+    <legend>Dados Recurso</legend>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativorecurso.label.origemDestino'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.destinoFase.origemDestino"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+        
+        <label class="col-xs-2 control-label">{{'processoadministrativorecurso.label.motivoAlegacao'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.motivoAlegacao.descricao"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativorecurso.label.tipoRecurso'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.tipoRecurso"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativorecurso.label.situacao'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.situacaoRecursoLabel"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativorecurso.label.dataRecurso'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.dataRecurso"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+</fieldset>
+<br/>

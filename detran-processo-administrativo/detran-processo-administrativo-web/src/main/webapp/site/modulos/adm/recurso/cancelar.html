@@ -1,0 +1,34 @@
+
+<div class="modal-header dialog-header-confirm">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title"><span class="glyphicon glyphicon-check"></span>{{header | i18next}}Cancelar</h4>
+</div>
+
+<div class="modal-body">
+    <tabset>
+        <tab heading="{{'detran.global.form.geral'| i18next}}">
+            
+            <div class="form-group row">
+                <label class="col-xs-2 control-label">Motivo Cancelamento<span class="obrigatorio" title="Obrigatório">*</span></label>  
+                <div class="col-xs-2 width_auto">
+                    <select ng-model="data.motivoCancelamento"
+                            class="form-control input-sm">
+                            <option value="">Selecione</option>
+                            <option ng-value="item.value" 
+                                    ng-selected="item.value == motivoCancelamento" 
+                                    ng-repeat="item in motivoCancelamentoSelect">{{item.label}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div ng-include="filesPath('responsavelprot.html')"></div>
+            
+            <br clear="all"/>
+        </tab>
+    </tabset>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-{{'global.btn.yes.btn' | i18next}}" ng-disabled="validateForm()" ng-click="ok()">{{'global.btn.yes.title' | i18next}}</button>
+    <button type="button" class="btn btn-{{'global.btn.no.btn'  | i18next}}" ng-click="cancel()">{{'global.btn.no.title' | i18next}}</button>
+</div>

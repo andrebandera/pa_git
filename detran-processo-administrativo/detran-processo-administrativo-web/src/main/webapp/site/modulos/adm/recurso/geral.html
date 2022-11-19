@@ -1,0 +1,120 @@
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'recurso.label.cpf'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-3">
+        <input ng-disabled="page == 'view' || page == 'edit'"
+               ng-model="data.numeroDocumento"
+               class="form-control input-sm"
+               type="text"
+               dtn-number 
+               ui-mask="999.999.999-99"
+               ng-blur="buscarProcessosAdministrativos()">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'recurso.label.numeroProcesso' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-3">
+        <select ng-disabled="bloquearListaPa || page == 'view' || !data.numeroDocumento" 
+                ng-model="data.entidade.processoAdministrativo" 
+                class="form-control input-xs" ng-change="populaDestino()">
+            <option value="">Selecione</option>
+            <option ng-value="item.object"
+                    ng-selected="item.value == data.entidade.processoAdministrativo.id" 
+                    ng-repeat="item in processosAdministrativosSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'recurso.label.foraPrazo' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-3">
+        <select ng-disabled="bloquearListaPa || page == 'view' || (!usuarioAcessoPA || !usuarioAcessoPA.habilitarForaPrazo)" 
+                ng-model="data.indiceForaPrazo" 
+                class="form-control input-xs">
+            <option value="">Selecione</option>
+            <option ng-value="item.value" 
+                    ng-selected="item.value == data.indiceForaPrazo" 
+                    ng-repeat="item in indiceForaPrazoSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'recurso.label.dataRecurso'| i18next}} 
+        <span class="obrigatorio" title="Obrigatorio">*</span>
+    </label>
+    <div class="col-xs-2 width_auto">
+        <input ng-disabled="data.desabilitadoDataRecurso"
+            ng-model="data.dataRecurso"
+            class="form-control input-md" type="text"  
+            id="recurso_data" maxlength="10" size="10"
+            dtn-datepicker />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'recurso.label.destino' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-3">
+        <input ng-disabled="true" ng-model="data.destino" class="form-control input-sm" type="text">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'recurso.label.forma' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-3">
+        <select ng-disabled="bloquearListaPa || page == 'view'" 
+                ng-model="data.forma" 
+                class="form-control input-xs">
+            <option value="">Selecione</option>
+            <option ng-value="item.value" 
+                    ng-selected="item.value == data.forma" 
+                    ng-repeat="item in formaSelect">{{item.label}}
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'recurso.label.responsavel' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-3">
+        <select ng-model="data.responsavel"
+                ng-disabled="bloquearListaPa || page == 'view'" 
+                ng-change="limparResponsavel()"
+                class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value" 
+                    ng-selected="item.value == data.responsavel" 
+                    ng-repeat="item in responsavelSelect">{{item.label}}</option>
+        </select>
+    </div>
+    <a ng-if="page == 'create' && data.responsavel == 'REPRESENTANTE_LEGAL' && !data.representanteLegal" 
+       class="glyphicon glyphicon-plus-sign icon-large green" 
+       ng-click="adicionarResponsavel()" 
+       title="Cadastrar Representante Legal"></a>
+
+</div>
+<div class="form-group" ng-if="data.representanteLegal">
+    <label class="col-xs-3 control-label">{{'recurso.label.representanteLegal' | i18next}}</label>  
+    <div class="col-xs-9 width_auto">
+        <input ng-model="data.representanteLegal.nome" 
+               ng-readonly="true" 
+               class="form-control input-sm">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label" >{{'recurso.label.observacao'| i18next}}</label>  
+    <div class="col-xs-3">
+        <textarea ng-readonly="page == 'view'" 
+               ng-model="data.observacao" 
+               maxlength="1000"
+               class="form-control input-sm"
+               type="text" 
+               dtn-letramaiuscula></textarea>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-e control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn.html'"></div>
+</div>

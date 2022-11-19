@@ -1,0 +1,66 @@
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'lotenotificacao.label.nome' | i18next}}</label>
+                    <input ng-readonly="true"
+                           ng-model="data.nome"
+                           type="text"
+                           class="form-control input-md"/>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'lotenotificacao.label.dataGeracao' | i18next}} </label>
+                    <input ng-readonly="true"
+                           ng-model="data.dataGeracao"
+                           ng-disabled="true"
+                           type="text"
+                           class="form-control input-md"
+                           maxlength="10"
+                           dtn-datepicker />
+                </div>
+
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4">
+                <label class="control-label">{{'lotenotificacao.label.tipo' | i18next}}</label>
+                <input ng-readonly="true"
+                       ng-model="data.tipoLabel"
+                       type="text"
+                       class="form-control input-md"/>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4">
+                <label class="control-label">{{'lotenotificacao.label.quantidade' | i18next}}</label>
+                <input ng-readonly="true"
+                       ng-model="data.qtdNotificacoes"
+                       type="text"
+                       class="form-control input-md"/>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="form-group">
+    <label class="col-md-2 col-xs-2 control-label"></label>
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

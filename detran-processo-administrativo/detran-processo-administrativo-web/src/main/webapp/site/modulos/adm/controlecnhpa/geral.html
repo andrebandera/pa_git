@@ -1,0 +1,265 @@
+<fieldset class="customFieldset" >
+    <legend>Dados Condutor</legend>
+
+    <div class="form-group row">
+        <label class="col-xs-3 control-label" >{{'controlecnh.label.cpf'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+        <div class="col-xs-2 width_auto">
+            <input ng-disabled="page == 'view' || data.dadosCondutorBCA.cpf" 
+                   ng-model="criteria.cpf" 
+                   class="form-control input-sm"
+                   type="text"
+                   dtn-number 
+                   ui-mask="999.999.999-99"
+                   />
+        </div>
+
+        <label class="col-xs-2 control-label">{{'controlecnh.label.numeroCnh'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+        <div class="col-xs-2 width_auto">
+            <input ng-model="data.entidade.cnhControle.numeroCnh" 
+                   class="form-control input-sm"
+                   ng-disabled="page == 'edit' || page == 'view' || data.dadosCondutorBCA.cpf"
+                   maxlength="11"
+                   size="12"
+                   dtn-number>
+        </div>
+        <div class="col-xs-2 control-label">
+            <input type ="button"   class="btn btn-{{'global.btn.salvar.btn'| i18next}}"
+                 ng-click="buscarProcessoAdministrativo(criteria.cpf, data.entidade.cnhControle.numeroCnh)"
+                 ng-disabled="!(criteria.cpf &&  data.entidade.cnhControle.numeroCnh) || data.dadosCondutorBCA.cpf"
+                 value="Buscar Processo" />
+        </div>
+    </div>
+
+    <div class="form-group" ng-show="true">
+        <!--<div class="form-group" ng-show="data.processo.id">-->
+        <label class="col-xs-3 control-label">{{'controlecnh.label.nome'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+        <div class="col-xs-9 width_auto">
+            <input ng-model="data.entidade.cnhControlePessoa.nomeEntrega" 
+                   class="form-control input-sm"
+                   ng-disabled="true"
+                   dtn-letramaiuscula
+                   maxlength="44"
+                   size="45">
+        </div>
+    </div>
+    <!--<div class="form-group" ng-show="data.processo.id">-->
+    <div class="form-group" ng-show="true">
+        <label class="col-xs-3 control-label">{{'controlecnh.label.numeroRegistro'| i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+        <div class="col-xs-4 width_auto">
+            <input ng-model="data.entidade.cnhControle.numeroRegistro" 
+                   class="form-control input-sm"
+                   ng-disabled="true"
+                   maxlength="11"
+                   size="12"
+                   dtn-number>
+        </div>
+    </div>
+    
+    <div class="form-group" ng-show="data.dadosCondutorBCA.numeroPid">
+    <label class="col-xs-3 control-label">{{'controlecnh.label.pid' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-10 width_auto">
+        <input ng-model="data.pidInformada" 
+               class="form-control input-sm"
+               ng-disabled="page == 'edit' || page == 'view'"
+               maxlength="20"
+               dtn-letramaiuscula
+               size="20">
+    </div>
+</div>
+    
+</fieldset>
+<br/>
+
+<fieldset class="customFieldset" >
+    
+    <legend>Processos Administrativos em Fase de Recolhimento da CNH</legend>
+    <div ng-if="hasData48" detran-table action-buttons="actionButtons" my-name="processos48Table" config="configTableProcessos48" ></div>
+    
+</fieldset>
+
+<fieldset class="customFieldset" >
+    
+    <legend>Processos Jurídicos em Fase de Recolhimento da CNH</legend>
+    <div ng-if="hasData48J" detran-table action-buttons="actionButtons" my-name="processos48JTable" config="configTableProcessos48J" ></div>
+    
+</fieldset>
+
+<fieldset class="customFieldset" >
+    
+    <legend>Processos Disponíveis Para Desistência</legend>
+    <div ng-if="hasDataDesistencia" 
+         detran-table 
+         action-buttons="actionButtons" 
+         my-name="processosDesistenciaTable" 
+         config="configTableProcessosDesistencia" >
+    </div>
+    
+</fieldset>
+
+<fieldset class="customFieldset" >
+    
+    <legend>Processos Jurídicos Disponíveis Para Entrega</legend>
+    <div ng-if="hasDataDesistenciaJ" 
+         detran-table 
+         action-buttons="actionButtons" 
+         my-name="processosDesistenciaJTable" 
+         config="configTableProcessosDesistenciaJ" >
+    </div>
+    
+</fieldset>
+
+<fieldset class="customFieldset" >
+    
+    <legend>Processos Com Recurso em Análise Disponíveis Para Desistência</legend>
+    
+    <div class="col-xs-12 bg-danger" ng-if="hasDataDesistenciaRecurso" align="center">
+        <!--<label class="control-label">{{'processojudicial.label.msgCnhEntregue'| i18next}}</label>-->
+        <p>ATENÇÃO!</p>
+        <p>Os processos abaixo estão COM RECURSO protocolado.</p>
+        <p>Selecionar somente processos que o condutor deseja desistir do recurso que ainda não foi julgado.</p>
+    </div>
+    
+    <div ng-if="hasDataDesistenciaRecurso" 
+         detran-table 
+         action-buttons="actionButtons" 
+         my-name="processosDesistenciaRecursoTable" 
+         config="configTableProcessosDesistenciaRecurso" >
+    </div>
+    
+    <div class="col-xs-12 bg-warning" ng-if="hasDataDesistenciaRecurso" align="center">
+        <!--<label class="control-label">{{'processojudicial.label.msgCnhEntregue'| i18next}}</label>-->
+        <p><strong>OBS: Ao selecionar processo com recurso, será efetuado um protocolo de cancelamento do mesmo.</strong></p>
+    </div>
+</fieldset>
+
+<fieldset class="customFieldset" >
+    <legend>Prazo Total da Penalidade a Cumprir</legend>
+    <div class="form-group" ng-show="true">
+    <!--<div class="form-group" ng-show="data.processo.id">-->
+        <label class="col-xs-3 control-label">{{'controlecnhpa.label.dataInicio'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+        <div class="col-xs-2 width_auto">
+            <input ng-disabled="true" 
+                   ng-model="data.dataInicioPenalidade"
+                   ng-blur="atualizarDatasPenalidade()"
+                   ng-change="atualizarDatasPenalidade()"
+                   class="form-control input-md" type="text"  
+                    id="bloqueio_dataInicio"
+                    maxlength="10"
+                    size="10"
+                    dtn-datepicker />
+        </div>
+        <label class="col-xs-7 text-left text-danger">{{'controlecnhpa.avisoDataInicio'| i18next}}</label>  
+    </div>
+
+    <div class="form-group" ng-show="true">
+    <!--<div class="form-group" ng-show="data.processo.id">-->
+        <label class="col-xs-3 control-label">{{'controlecnhpa.label.dataFim'| i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+        <div class="col-xs-2 width_auto">
+            <input ng-disabled="true"
+                   ng-model="data.dataFimPenalidade"
+                   class="form-control input-md" type="text"  
+                    id="bloqueio_dataInicio"
+                    maxlength="10"
+                    size="10"
+                    dtn-datepicker />
+        </div>
+    </div>
+
+    <!--<div class="form-group" ng-show="data.processo.id">-->
+    <div class="form-group" ng-show="true">
+        <label class="col-xs-3 control-label" >{{'controlecnhpa.label.tempoPenalidade'| i18next}} </label>  
+        <div class="col-xs-10 width_auto">
+            <input ng-readonly="true" 
+                   ng-model="data.tempoPenalidade" 
+                   maxlength="10"
+                   size="3"
+                   class="form-control input-sm"
+                   type="text" dtn-number/>
+        </div>
+    </div>
+    
+    <!--<div class="form-group" ng-show="data.processo.id">-->
+    <div class="form-group" ng-show="true">
+        <label class="col-xs-3 control-label" >{{'controlecnhpa.label.tempoPenalidadePJU'| i18next}} </label>  
+        <div class="col-xs-10 width_auto">
+            <input ng-readonly="true" 
+                   ng-model="data.tempoPenalidadePJU" 
+                   maxlength="10"
+                   size="3"
+                   class="form-control input-sm"
+                   type="text" dtn-number/>
+        </div>
+    </div>
+</fieldset>
+<br/>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'controlecnh.label.formaEntrega' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-4 width_auto">
+        <select ng-model="data.entidade.formaEntrega" 
+                ng-disabled="page == 'view' || (!usuarioAcessoPA || !usuarioAcessoPA.habilitarTipoEntregaCnh)"
+                class="form-control input-sm">
+                <option value="">Selecione</option>
+                <option ng-value="item.value" 
+                        ng-selected="item.value == data.entidade.formaEntrega" 
+                        ng-repeat="item in formaEntregaSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>
+
+<div ng-include="filesPath('responsavelprot.html')"></div>
+
+<!--<div class="form-group" ng-show="data.processo.id">-->
+<div class="form-group" ng-show="true">
+    <label class="col-xs-3 control-label">{{'controlecnhpa.label.postoAtendimento'|i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+    <div class="col-xs-6">
+        <input ng-model="data.entidade.cnhControle.postoAtendimentoDevolucao" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.buscaDescricaoMinimo.placeholder"  
+               ui-keypress="{ enter: 'postoModal(typePosto[0])' }" 
+               ui-event="{ dblclick : 'postoModal(typePosto[0])' }" 
+               ng-disabled="page == 'view' ||  !usuarioAcessoPA || !usuarioAcessoPA.habilitarPostoAtendimento" 
+               ng-model="$parent.dataModal.postoDescricao" 
+               class="form-control input-md" type="text"
+               dtn-letramaiuscula
+               maxlength="60" >
+    </div>
+</div>
+
+<div class="form-group" ng-show="true">
+    <label class="col-xs-3 control-label">{{'controlecnhpa.label.postoAtendimentoRecolhimento'|i18next}} <span class="obrigatorio" title="Obrigatorio">*</span></label>  
+    <div class="col-xs-6">
+        <input ng-model="data.entidade.postoAtendimento" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.buscaDescricaoMinimo.placeholder"  
+               ui-keypress="{ enter: 'postoRecolhimentoModal(typePosto[0])' }" 
+               ui-event="{ dblclick : 'postoRecolhimentoModal(typePosto[0])' }" 
+               ng-disabled="page == 'view'" 
+               ng-model="$parent.dataModal.postoRecolhimentoDescricao" 
+               class="form-control input-md" type="text"
+               dtn-letramaiuscula
+               maxlength="60" >
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'controlecnhpa.label.telefone'| i18next}}</label>  
+    <div class="col-sm-3">
+        <input ng-model="data.entidade.cnhControle.telefone" class="form-control input-sm" type="text" dtn-telefone maxlength="15"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{'controlecnh.label.observacao' | i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-10 width_auto">
+        <input ng-model="data.entidade.observacao" 
+               class="form-control input-sm"
+               ng-disabled="page == 'edit' || page == 'view'"
+               maxlength="450"
+               dtn-letramaiuscula
+               size="90">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-xs-4 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn.html'"></div>
+</div>

@@ -1,0 +1,33 @@
+<div class="form-group" ng-if="page === 'edit'">
+    <label class="col-md-4 control-label">{{'origemInstauracao.label.indiceFluxoInicial'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-md-2">
+        <select ng-model="data.entidade.indiceFluxoInicial"
+                class="form-control input-sm"
+                ng-disabled="page == 'view'">
+            <option value="">Selecione</option>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+<label class="col-md-4 control-label">{{"origemInstauracao.label.descricao"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-md-6">
+        <input ng-model="data.entidade.origemInstauracao" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'origemInstauracaoModal()' }" 
+               ui-event="{ dblclick : 'origemInstauracaoModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.origemInstauracao"
+               class="form-control input-md" type="text" dtn-uppercase maxlength="50"
+               dtn-uppercase-symbols>
+    </div>
+</div>
+
+
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

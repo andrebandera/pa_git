@@ -1,0 +1,11 @@
+
+<!-- Data input-->
+<div class="col-xs-2 width_auto">
+    <label class="control-label">{{'relatorioprocessoprescrito.label.dataInicialLabel' | i18next}}</label>  
+    <input ui-keypress="{ enter: 'pesquisar()' }" id="dataInicialLabel" ng-model="$parent.filtros.data.dataEntrada" class="form-control" type="text" maxlength="10" size="10" dtn-datepicker/>
+</div>
+
+<div class="col-xs-2 width_auto">
+    <label class="control-label">{{'relatorioprocessoprescrito.label.dataFinalLabel' | i18next}}</label>  
+    <input ui-keypress="{ enter: 'pesquisar()' }" id="dataFinalLabel" ng-model="$parent.filtros.data.dataSaida" class="form-control" type="text" maxlength="10" size="10" dtn-datepicker/>
+</div>

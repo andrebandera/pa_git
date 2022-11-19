@@ -1,0 +1,83 @@
+<div class="form-group">
+<label class="col-xs-2 control-label">{{"tipocorpoandamento.label.origemProcesso"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-5">
+        <input ng-model="data.entidade.origemProcesso" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'origemInstauracaoModal()' }" 
+               ui-event="{dblclick : 'origemInstauracaoModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.origemProcesso"
+               class="form-control input-md" type="text" maxlength="50"
+               dtn-uppercase-symbols>
+    </div>
+</div>
+<div class="form-group">
+<label class="col-xs-2 control-label">{{"tipocorpoandamento.label.fluxoProcessoEdital"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-5">
+        <input ng-model="data.entidade.fluxoProcessoEdital" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'fluxoProcessoEditalModal()' }" 
+               ui-event="{dblclick : 'fluxoProcessoEditalModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.fluxoProcessoEdital"
+               class="form-control input-md" type="text" maxlength="50"
+               dtn-uppercase-symbols>
+    </div>
+</div>
+<div class="form-group">
+<label class="col-xs-2 control-label">{{"tipocorpoandamento.label.fluxoProcessoRecurso"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-5">
+        <input ng-model="data.entidade.fluxoProcessoRecurso" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'fluxoProcessoRecursoModal()' }" 
+               ui-event="{dblclick : 'fluxoProcessoRecursoModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.fluxoProcessoRecurso"
+               class="form-control input-md" type="text" maxlength="50"
+               dtn-uppercase-symbols>
+    </div>
+</div>
+<div class="form-group">
+<label class="col-xs-2 control-label">{{"tipocorpoandamento.label.fluxoProcessoRecursoCancelado"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-5">
+        <input ng-model="data.entidade.fluxoProcessoRecursoCancelado" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'fluxoProcessoRecursoCanceladoModal()' }" 
+               ui-event="{dblclick : 'fluxoProcessoRecursoCanceladoModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.fluxoProcessoRecursoCancelado"
+               class="form-control input-md" type="text" maxlength="50"
+               dtn-uppercase-symbols>
+    </div>
+</div>
+<div class="form-group">
+<label class="col-xs-2 control-label">{{"tipocorpoandamento.label.tipoCorpoTexto"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-5">
+        <input ng-model="data.tipoCorpoTexto.descricao" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'tipoCorpoTextoModal()' }" 
+               ui-event="{dblclick : 'tipoCorpoTextoModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.tipoCorpoTexto"
+               class="form-control input-md" type="text" maxlength="50"
+               dtn-uppercase-symbols>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'tipocorpoandamento.label.tipoNotificacaoProcesso'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>
+    <div class="col-xs-5">
+        <select ng-model="data.entidade.tipoNotificacaoProcesso"
+                class="form-control input-dm"
+                ng-disabled="!novo && !edit">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-repeat="item in tipoNotificacaoProcessoSelect">{{item.label}}
+            </option>
+        </select>
+    </div>
+</div>
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

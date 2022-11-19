@@ -1,0 +1,105 @@
+<div class="col-xs-12">
+    <div class="col-xs-2">
+        <label class="control-label">{{"recurso.label.cpf"|i18next}}</label>  
+        <input ui-keypress="{ enter: 'pesquisar()' }" 
+               ng-model="$parent.filtros.data.cpf" 
+               class="form-control input-sm" 
+               type="text" 
+               dtn-number 
+               ui-mask="999.999.999-99">
+    </div>
+
+    <div class="col-xs-3 width_auto">
+        <label class="control-label">{{"recurso.label.numeroProcesso"|i18next}}</label>  
+        <input ui-keypress="{ enter: 'pesquisar()' }" 
+               ng-model="$parent.filtros.data.numeroProcesso" 
+               class="form-control input-sm" 
+               type="text" 
+               size="12" 
+               dtn-mask-numero-ano 
+               qtdenumeros="6" 
+               separador="'/'"
+                />
+    </div>  
+    
+    <div class="col-xs-2 width_auto">
+        <label class="control-label">{{'recurso.label.situacao' | i18next}}</label>  
+        <select ng-model="$parent.filtros.data.situacao"
+                class="form-control input-sm">
+                <option value="">Selecione</option>
+                <option ng-value="item.value" 
+                        ng-selected="item.value === filtros.data.situacao" 
+                        ng-repeat="item in situacaoSelect">{{item.label}}</option>
+        </select>
+    </div>
+
+    <div class="col-xs-2 width_auto">
+        <label class="control-label">{{'recurso.label.tipo' | i18next}}</label>  
+        <select ng-model="$parent.filtros.data.tipo"
+                class="form-control input-sm">
+                <option value="">Selecione</option>
+                <option ng-value="item.value" 
+                        ng-selected="item.value === filtros.data.tipo" 
+                        ng-repeat="item in tipoSelect">{{item.label}}</option>
+        </select>
+    </div>
+
+    <div class="col-xs-2 width_auto">
+        <label class="control-label">{{'recurso.label.resultado' | i18next}}</label>  
+        <select ng-model="$parent.filtros.data.resultado"
+                class="form-control input-sm">
+                <option value="">Selecione</option>
+                <option ng-value="item.value" 
+                        ng-selected="item.value === filtros.data.resultado" 
+                        ng-repeat="item in resultadoSelect">{{item.label}}</option>
+        </select>
+    </div>
+    
+    <div class="col-xs-2 width_auto">
+        <label class="control-label">{{'recurso.label.destino' | i18next}}</label>  
+        <select ng-model="$parent.filtros.data.destino"
+                class="form-control input-sm">
+                <option value="">Selecione</option>
+                <option ng-value="item.value" 
+                        ng-selected="item.value === filtros.data.destino" 
+                        ng-repeat="item in destinoSelect">{{item.label}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    <div class="col-xs-3">
+        <label class="control-label">{{"recurso.label.dataInicioProtocolo" | i18next}}</label>
+        <input type="text" ng-model="$parent.filtros.data.dataInicioProtocolo" dtn-datepicker class="form-control" />
+    </div>
+
+    <div class="col-xs-3">
+        <label class="control-label">{{"recurso.label.dataFimProtocolo" | i18next}}</label>
+        <input type="text" ng-model="$parent.filtros.data.dataFimProtocolo" dtn-datepicker class="form-control" />
+    </div>
+
+    <div class="col-xs-3">
+        <label class="control-label">{{"recurso.label.dataInicioResultado" | i18next}}</label>
+        <input type="text" ng-model="$parent.filtros.data.dataInicioResultado" dtn-datepicker class="form-control" />
+    </div>
+
+    <div class="col-xs-3">
+        <label class="control-label">{{"recurso.label.dataFimResultado" | i18next}}</label>
+        <input type="text" ng-model="$parent.filtros.data.dataFimResultado" dtn-datepicker class="form-control" />
+    </div>
+</div>
+        
+
+<div class="col-xs-12">
+    <detran-consulta-pessoa-por-nome-cpf-cnpj
+        my-name = "ConsultaPessoa"
+        esconde-botao-pesquisa="true"
+        esconde-pessoa-nome="false"
+        esconde-pessoa-cpf-cnpj="true"
+        label-descricao="Relator"
+        label-field-cpf-cnpj="CPF/CNPJ"
+        resource-path="consultausuarios/search"
+        files-path="/detran-processo-administrativo/site/modulos/adm/recurso"
+    ></detran-consulta-pessoa-por-nome-cpf-cnpj>
+</div>
+

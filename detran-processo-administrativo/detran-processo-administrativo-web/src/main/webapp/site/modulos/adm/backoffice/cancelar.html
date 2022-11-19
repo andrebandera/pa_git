@@ -1,0 +1,33 @@
+<div class="modal-header dialog-header-confirm">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title"><span class="glyphicon glyphicon-check"></span>{{header | i18next}} Cancelamento Recurso
+    </h4>
+</div>
+
+<div class="modal-body">
+    <tabset>
+        <tab heading="{{'detran.global.form.geral'| i18next}}">
+            <div class="form-group">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'backoffice.label.motivoCancelamento' | i18next}}<span
+                            class="obrigatorio" title="Obrigatório">*</span></label>
+                    <textarea ng-model="data.motivoCancelamento"
+                              class="form-control input-sm"
+                              cols="200" rows="10" dtn-uppercase maxlength="1000"
+                              dtn-letramaiuscula></textarea>
+                </div>
+            </div>
+
+            <br clear="all"/>
+        </tab>
+    </tabset>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-{{'global.btn.yes.btn' | i18next}}" ng-disabled="validateForm()"
+            ng-click="ok()">{{'global.btn.yes.title' | i18next}}
+    </button>
+    <button type="button" class="btn btn-{{'global.btn.no.btn'  | i18next}}" ng-click="cancel()">
+        {{'global.btn.no.title' | i18next}}
+    </button>
+</div>

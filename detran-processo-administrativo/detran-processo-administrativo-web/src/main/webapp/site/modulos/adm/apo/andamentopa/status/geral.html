@@ -1,0 +1,19 @@
+<div class="form-group">
+<label class="col-md-4 control-label">{{"status.label.descricao"|i18next}} <span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-md-6">
+        <input ng-model="data.entidade.status" type="hidden" value="">
+        <input ng-i18next="[placeholder]global.input.busca.placeholder"  
+               ui-keypress="{ enter: 'statusModal()' }" 
+               ui-event="{ dblclick : 'statusModal()' }" 
+               ng-disabled="!novo && !edit" 
+               ng-model="$parent.dataModal.status"
+               class="form-control input-md" type="text" dtn-uppercase maxlength="150">
+    </div>
+</div>
+
+
+<!-- Button (Double) -->
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

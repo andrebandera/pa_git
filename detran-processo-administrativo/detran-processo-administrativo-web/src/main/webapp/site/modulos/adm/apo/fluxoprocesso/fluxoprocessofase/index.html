@@ -1,0 +1,19 @@
+<div class="odd" ng-controller="fluxoprocessofaseCtrl">
+    <!--<div ng-include="urlPartials + 'criteriaDtl.html'"></div>  filtros -->
+    <!--<div class="clearfix"></div> -->
+    <div ng-if="hasData" detran-table config="config"
+    	 params="mestreID" my-name="fluxoprocessofase"
+    	 action-buttons="actionButtons"></div>
+
+    <!-- Tabs -->
+    <tabset>
+        <tab heading="Geral">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+        <tab ng-click="tabClick('fluxofase')" ng-if="showTabs" heading="Andamento Processo">
+            <div class="filtros-header detalhe-header">{{data.entidade.faseProcessoAdm.descricao}}</div>
+            <div ng-include="filesPath('fluxofase/index.html')"></div>
+        </tab>
+</div>
+

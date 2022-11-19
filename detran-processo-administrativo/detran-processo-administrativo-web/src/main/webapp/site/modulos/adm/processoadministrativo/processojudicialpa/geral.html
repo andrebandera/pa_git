@@ -1,0 +1,207 @@
+<div class="form-group">
+    
+    <fieldset class="customFieldset" >
+        <legend>Dados Processo Judicial</legend>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicialpa.label.tipoDocumento' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.tipoDocumento.descricao" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicialpa.label.valorDocumento'| i18next}}</label>  
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.valorDocumento" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicialpa.label.parte' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.parteProcessoJuridico" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicialpa.label.formularioRenach'| i18next}}</label>  
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.formularioRenach" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicialpa.label.tipoMedida' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.tipoMedida" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicialpa.label.valorAutos'| i18next}}</label>  
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.valorAutos" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicialpa.label.orgaoJudicial' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.orgaoJudicial" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicialpa.label.orgaoBca' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.orgaoBCA" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicialpa.label.requisitoCursoBloqueio' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.requisitoCursoLabel" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicialpa.label.unidadePenal' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.unidadePenal" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label" >{{'processojudicialpa.label.indicativoPrazoIndeterminado'| i18next}}</label>  
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.indicativoPrazoIndeterminado" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+
+                <div class="col-xs-6" ng-show="data.entidade.indicativoPrazoIndeterminado == 'NAO'">
+                    <label class="control-label" >{{'processojudicialpa.label.prazoPenalidade'| i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.prazoPenalidade" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicialpa.label.identificacaoRecolhimentoCnh' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.recolhimentoCnhLabel" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+                
+                <div class="col-xs-4" ng-show="data.entidade.identificacaoRecolhimentoCnh == 'DETRAN' || data.entidade.identificacaoRecolhimentoCnh == 'CARTORIO_JUDICIARIO'">
+                    <label class="control-label">{{'processojudicialpa.label.dataInicioPenalidade' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.dataInicioPenalidade" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicialpa.label.dataEntregaCnh' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.dataEntrega" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="control-label">{{'processojudicialpa.label.dataBloqueio' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.dataBloqueio" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-10">
+                    <label class="control-label" >{{'processojudicialpa.label.observacao'| i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.observacao" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicialpa.label.identificacaoDelito' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.identificacaoDelito" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <label class="control-label">{{'processojudicialpa.label.segredoJustica' | i18next}}</label>
+                    <input ng-disabled="true" 
+                           ng-model="data.entidade.segredoJustica" 
+                           class="form-control input-sm"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="form-group">
+    <label class="col-md-4 col-xs-2 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

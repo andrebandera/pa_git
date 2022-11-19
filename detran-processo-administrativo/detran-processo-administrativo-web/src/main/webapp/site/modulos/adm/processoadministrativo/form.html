@@ -1,0 +1,41 @@
+<form class="form-horizontal row">
+    <div ng-include="filesPath('cabecalho.html')"></div>
+    <tabset>
+        <tab heading="Geral">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processoadministrativoinfracao')" heading="Infrações" ng-if="!showTabJudicial">
+            <div ng-include="filesPath('processoadministrativoinfracao/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processojudicialpa')" heading="Processo Judicial" ng-if="showTabJudicial">
+            <div ng-include="filesPath('processojudicialpa/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processoadministrativonotificacao')" heading="Notificações">
+            <div ng-include="filesPath('processoadministrativonotificacao/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processoadministrativorecurso')" heading="Recursos" ng-if="!showTabJudicial">
+            <div ng-include="filesPath('processoadministrativorecurso/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processoadministrativobloqueio')" heading="Bloqueio">
+            <div ng-include="filesPath('processoadministrativobloqueio/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processoadministrativocontrolecnh')" heading="Controle CNH">
+            <div ng-include="filesPath('processoadministrativocontrolecnh/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processoadministrativomovimentacoes')" heading="Movimentações">
+            <div ng-include="filesPath('processoadministrativomovimentacoes/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('processoadministrativohistorico')" heading="Histórico">
+            <div ng-include="filesPath('processoadministrativohistorico/index.html')"></div>
+        </tab>
+    </tabset>
+</form>

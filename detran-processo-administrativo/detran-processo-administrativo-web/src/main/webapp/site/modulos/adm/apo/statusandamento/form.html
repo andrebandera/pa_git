@@ -1,0 +1,12 @@
+<form class="form-horizontal row">
+    <tabset>
+        <tab heading="Geral">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('andamento')" ng-if="showTabs" heading="Andamento PA">
+            <div class="filtros-header detalhe-header">{{data.entidade.descricao}}</div>
+            <div ng-include="filesPath('andamento/index.html')"></div>
+    </tabset>
+</form>

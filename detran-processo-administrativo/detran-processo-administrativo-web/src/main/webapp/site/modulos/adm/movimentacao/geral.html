@@ -1,0 +1,42 @@
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'movimentacao.label.numeroProcesso'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-3">
+        <input ui-keypress="{ enter: 'buscarProcessoAdministrativo()' }"
+               ng-disabled="page == 'view' || page == 'edit'"
+               ng-model="data.processoAdministrativo.numeroProcessoMascarado"
+               class="form-control input-sm"
+               type="text"
+               ng-change="limpar()"
+               dtn-number />
+    </div>
+</div>
+
+<div ng-include="filesPath('dadosProcessoAdministrativo.html')"></div>
+
+<div ng-include="filesPath('acaoMotivo.html')"></div>
+
+<div class="form-group">
+    <label class="col-xs-2 control-label">{{'movimentacao.label.observacao'| i18next}}<span class="obrigatorio" title="Obrigatório">*</span></label>  
+    <div class="col-xs-10">
+        <textarea rows="3" ng-disabled="page == 'view' || page == 'edit' || !data.processoAdministrativo.cpf"
+               ng-model="data.entidade.observacao"
+                  ng-model="data.entidade.observacao"
+               class="form-control input-sm">
+                  class="form-control input-sm"></textarea>
+    </div>
+</div>
+
+<div ng-include="filesPath('tabelaInfracoes.html')"></div>
+
+<div class="form-group">
+    <label class="col-xs-6 control-label"></label>  
+    <div class="col-xs-3">
+        <div class="btn-gravar-wrapper margin-r-5" ng-if="showButtonGravar() && validateForm()" tooltip="Preencha os campos marcados com ( * ) ">
+            <button tabindex="996" ng-disabled="validateForm()" class="btn btn-{{'global.btn.salvar.btn'| i18next}}">{{'global.btn.salvar.titulo'| i18next}}</button>
+        </div>
+        <div class="btn-gravar-wrapper margin-r-5" ng-if="showButtonGravar() && !validateForm()">
+            <button tabindex="997" id="btnGravar" ng-if="showButtonGravar()" ng-disabled="validateForm()" class="btn btn-{{'global.btn.salvar.btn'| i18next}}" ng-click="preSave()">{{'global.btn.salvar.titulo'| i18next}}</button>
+        </div>
+        <button tabindex="998" ng-click="new ()" class="btn btn-{{'global.btn.novo.btn'| i18next}} margin-r-5">{{'global.btn.novo.titulo'| i18next}}</button>
+    </div>
+</div>

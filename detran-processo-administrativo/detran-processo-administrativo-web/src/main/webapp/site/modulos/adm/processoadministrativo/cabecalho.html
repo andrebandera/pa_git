@@ -1,0 +1,14 @@
+<div class="barInfo navbar-fixed-top" ng-class="{'minimize': showHideBar, '': !showHideBar}" ng-if="cabecalho && cabecalho.data">
+    <div class="even" ng-init="cabecalho.start()">
+        <div class="nav-tabs"> </div>
+        <span class="col-xs-12 minMax margin-t-5 " ng-click="showHideBar=!showHideBar">
+            <i class="glyphicon pointer pull-right" ng-class="{'glyphicon-minus': !showHideBar, 'glyphicon-plus': showHideBar}"></i>
+        </span>
+        <div class="tab-content">
+            <div ng-hide="showHideBar">
+                <dtn-readonly-group data="cabecalho.data"></dtn-readonly-group>
+            </div>
+            <br clear="all" />
+        </div>
+    </div>   
+</div>

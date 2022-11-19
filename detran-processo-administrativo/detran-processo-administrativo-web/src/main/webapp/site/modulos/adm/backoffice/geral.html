@@ -1,0 +1,222 @@
+<fieldset class="customFieldset margin-b-15">
+    <legend>Dados do Processo</legend>
+    <div class="form-group ">
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.numeroProcesso' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.numeroProcesso"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">{{'backoffice.label.dataRecurso' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.dataRecurso"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset class="customFieldset margin-b-15">
+    <legend>Dados do Condutor</legend>
+    <div class="form-group ">
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.cpf' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.cpf"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">{{'backoffice.label.nome' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.requerente"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.rg' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.rg"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.registroCnh' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.numeroRegistroCnh"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.telefoneResidencial' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.telefoneResidencial"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.telefoneCelular' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.telefoneCelular"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="control-label">{{'backoffice.label.email' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.email"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.cep' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.enderecoCEP"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <label class="control-label">{{'backoffice.label.endereco' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.endereco"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <label class="control-label">{{'backoffice.label.numero' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.enderecoNumero"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div class="col-md-3">
+            <label class="control-label">{{'backoffice.label.bairro' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.enderecoBairro"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <label class="control-label">{{'backoffice.label.complemento' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.enderecoComplemento"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div class="col-md-1">
+            <label class="control-label">{{'backoffice.label.uf' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.uf"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="control-label">{{'backoffice.label.cidade' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.municipio"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset class="customFieldset margin-b-15">
+    <legend>Recurso</legend>
+    <div class="form-group ">
+        <div class="col-md-3">
+            <label class="control-label">{{'backoffice.label.dataNotificacao' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.dataNotificacao"></dtn-readonly>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">{{'backoffice.label.dataLimite' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.dataPrazoLimite"></dtn-readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+
+        <div class="col-md-3">
+            <label class="control-label">{{'backoffice.label.dataRecurso' | i18next}}</label>
+            <div>
+                <dtn-readonly value="data.entidade.dataRecurso"></dtn-readonly>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <label class="control-label">{{'backoffice.label.tempestividade' | i18next}}</label>
+            <select ng-model="data.entidade.indiceTempestividade" class="form-control input-sm"
+                    ng-disabled="page == 'view'">
+                <option value="">Selecione</option>
+                <option ng-value="item.value"
+                        ng-selected="item.value === data.entidade.indiceTempestividade"
+                        ng-repeat="item in indiceTempestividadeSelect">{{item.label}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="col-md-8">
+            <label class="control-label">{{'backoffice.label.descricao' | i18next}}</label>
+            <div>
+                <textarea ng-model="data.entidade.descricaoRecurso" ng-disabled="true" class="form-control input-md"
+                          type="text" style="height: 120px"></textarea>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset ng-if="data.entidade.motivoRecusa != null" class="customFieldset margin-b-15">
+    <legend>Recusado</legend>
+    <div class="form-group ">
+        <div class="col-md-8">
+            <label class="control-label">{{'backoffice.label.motivoRecusa' | i18next}}</label>
+            <div>
+                <textarea ng-model="data.entidade.motivoRecusa"
+                          ng-disabled="true" class="form-control input-md" type="text" style="height: 120px"></textarea>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset ng-if="data.entidade.motivoCancelamento != null" class="customFieldset margin-b-15">
+    <legend>Cancelamento</legend>
+    <div class="form-group ">
+        <div class="col-md-8">
+            <label class="control-label">{{'backoffice.label.motivoCancelamento' | i18next}}</label>
+            <div>
+                <textarea ng-model="data.entidade.motivoCancelamento"
+                          ng-disabled="true" class="form-control input-md" type="text" style="height: 120px"></textarea>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<div class="form-group">
+    <div class="col-md-12">
+        <div ng-include="urlPartials + 'anexos.html'"></div>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label class="col-xs-3 control-label"></label>
+    <div class="col-xs-9">
+        <div class="col-xs-2">
+            <a tabindex="999" href="#{{urlPath}}"
+               class="btn btn-{{'global.btn.voltar.btn' | i18next}}">{{'global.btn.voltar.titulo' | i18next}}</a>
+        </div>
+        <div class="col-xs-2">
+            <a tabindex="990" id="btnEfetivar" ng-if="page == 'edit'"
+               class="btn btn-{{'global.btn.salvar.btn' | i18next}}" ng-click="efetivar()">Efetivar</a>
+        </div>
+        <div class="col-xs-2">
+            <a tabindex="990" id="btnCancelar" ng-if="page == 'edit'"
+               class="btn btn-{{'global.btn.cancelar.btn' | i18next}}" ng-click="recusar()">Recusar</a>
+        </div>
+    </div>
+</div>

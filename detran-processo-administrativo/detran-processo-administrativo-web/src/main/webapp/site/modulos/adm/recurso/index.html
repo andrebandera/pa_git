@@ -1,0 +1,11 @@
+<div ng-include="urlPartials + 'criteria.html'"></div> <!-- filtros -->
+<div class="clearfix"></div>
+
+<div class="row small margin-5">
+    <div class="col-xs-12">
+        <span class="pull-right margin-t-20">
+            Total Geral: <span class="label label-default">{{total}}</span>
+        </span>
+    </div>
+</div>
+<div id="tablerecurso" ng-if="showList" ng-include="urlPartials + 'detranTable.html'"></div> <!-- list -->

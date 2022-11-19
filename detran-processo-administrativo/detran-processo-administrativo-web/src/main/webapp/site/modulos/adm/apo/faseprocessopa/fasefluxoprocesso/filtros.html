@@ -1,0 +1,32 @@
+<!-- Text input-->
+<div class="col-sm-4">
+	<label class="control-label">{{"gruposervicoetapa.label.etapa" | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisarFiltro()' }"
+               ng-model="mestreID.etapaDescricao"
+               class="form-control input-sm"
+               type="text"
+               maxlength="50"
+               dtn-uppercase >
+</div>
+
+<div class="col-sm-1">
+	<label class="control-label">{{"gruposervicoetapa.label.prioridade" | i18next}}</label>
+        <input ui-keypress="{ enter: 'pesquisarFiltro()' }"
+               ng-model="mestreID.prioridade"
+               class="form-control input-sm"
+               type="text"
+               maxlength="2"
+               dtn-number >
+</div>
+
+<!-- Situação Select -->
+<div class="col-sm-2">
+    <label class="control-label">{{'modulo.global.label.ativoLabel' | i18next}}</label>  
+    <select ng-model="mestreID.ativo" 
+            class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value" 
+                    ng-selected="item.value === mestreID.ativo" 
+                    ng-repeat="item in ativoSelect">{{item.label}}</option>
+    </select>
+</div>

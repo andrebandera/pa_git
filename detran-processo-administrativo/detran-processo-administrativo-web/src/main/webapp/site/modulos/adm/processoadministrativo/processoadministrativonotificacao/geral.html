@@ -1,0 +1,252 @@
+<fieldset class="customFieldset">
+    <legend>Notificação</legend>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.numeroNotificacao'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.numeroNotificacaoMascarado"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.dataNotificacao'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.dataNotificacao"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.tipoNotificacaoProcesso'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.tipoNotificacaoProcesso"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.objetoCorreios'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.objetoCorreio"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.dataTerminoPrazo'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.dataPrazoLimite"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.dataRetornoAr'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.correspondencia.dataRecebimento"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.motivoRetorno'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.correspondenciaCorreioDevolucao.descricao"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.dataChegada'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.correspondenciaCorreio.dataChegadaDestino"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.nomeRecebedorAr'| i18next}}</label>  
+        <div class="col-xs-6">
+            <input ng-disabled="true"
+                   ng-model="data.correspondenciaCorreio.nomeRecebedor"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.documentoRecebedorAr'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.correspondenciaCorreio.documentoRecebedor"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+</fieldset>
+<br/>
+
+<fieldset class="customFieldset">
+    <legend>Endereço</legend>
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.tipoEndereco'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.endereco.tipoLabel"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.rua'| i18next}}</label>  
+        <div class="col-xs-6">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.endereco.logradouro"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.numeroEndereco'| i18next}}</label>  
+        <div class="col-xs-2">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.endereco.numero"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.bairro'| i18next}}</label>  
+        <div class="col-xs-6">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.endereco.bairro"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.complemento'| i18next}}</label>  
+        <div class="col-xs-2">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.endereco.complemento"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.municipio'| i18next}}</label>  
+        <div class="col-xs-6">
+            <input ng-disabled="true"
+                   ng-model="data.municipio.nome"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.uf'| i18next}}</label>  
+        <div class="col-xs-2">
+            <input ng-disabled="true"
+                   ng-model="data.municipio.estado.sigla"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.cep'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.endereco.cep"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+    </div>
+    
+    
+</fieldset>
+<br/>
+
+<fieldset class="customFieldset">
+    <legend>Portaria Penalidade</legend>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.dataPortaria'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.notificacaoComplemento.data"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.numeroPortaria'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.notificacaoComplemento.numeroPortariaMascarado"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.tempoPenalidade'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.notificacaoComplemento.tempoPenalidade"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+</fieldset>
+<br/>
+
+<fieldset class="customFieldset">
+    <legend>Edital</legend>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.dataPublicacao'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.edital.dataPublicacao"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.numeroEdital'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.edital.numeroEditalMascarado"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativonotificacao.label.prazoEdital'| i18next}}</label>  
+        <div class="col-xs-3">
+            <input ng-disabled="true"
+                   ng-model="data.edital.terminoPrazoEdital"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+</fieldset>
+<br/>
+
+<div class="form-group">
+    <label class="col-md-2 col-xs-2 control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn_1.html'"></div>
+</div>

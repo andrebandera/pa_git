@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+  <enterprise-beans>
+    <ejb>
+      <ejb-name>InstauracaoService2</ejb-name>
+      <resource-ref>
+        <res-ref-name>jms/instaurarprocessoadministrativoQueueFactory</res-ref-name>
+        <jndi-name>jms/instaurarprocessoadministrativoQueueFactory</jndi-name>
+      </resource-ref>
+      <message-destination-ref>
+        <message-destination-ref-name>jms/instaurarprocessoadministrativoQueue</message-destination-ref-name>
+        <jndi-name>jms/instaurarprocessoadministrativoQueue</jndi-name>
+      </message-destination-ref>
+      <pass-by-reference>true</pass-by-reference>
+      <bean-pool>
+        <steady-pool-size>300</steady-pool-size>
+        <resize-quantity>50</resize-quantity>
+        <max-pool-size>500</max-pool-size>
+        <pool-idle-timeout-in-seconds>900</pool-idle-timeout-in-seconds>
+        <max-wait-time-in-millis>60000</max-wait-time-in-millis>
+      </bean-pool>
+      <bean-cache>
+        <max-cache-size>500</max-cache-size>
+        <resize-quantity>50</resize-quantity>
+        <cache-idle-timeout-in-seconds>900</cache-idle-timeout-in-seconds>
+        <removal-timeout-in-seconds>1200</removal-timeout-in-seconds>
+        <victim-selection-policy>NRU</victim-selection-policy>
+      </bean-cache>
+    </ejb>
+    <ejb>
+      <ejb-name>InstaurarPAConsumerService</ejb-name>
+      <pass-by-reference>true</pass-by-reference>
+      <bean-pool>
+        <steady-pool-size>10</steady-pool-size>
+        <resize-quantity>5</resize-quantity>
+        <max-pool-size>20</max-pool-size>
+        <pool-idle-timeout-in-seconds>900</pool-idle-timeout-in-seconds>
+        <max-wait-time-in-millis>60000</max-wait-time-in-millis>
+      </bean-pool>
+    </ejb>
+  </enterprise-beans>
+</glassfish-ejb-jar>

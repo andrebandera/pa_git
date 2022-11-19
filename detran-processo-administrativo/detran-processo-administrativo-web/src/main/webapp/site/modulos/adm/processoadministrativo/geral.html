@@ -1,0 +1,227 @@
+<fieldset class="customFieldset">
+    <legend>Dados Condutor</legend>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.nomeCondutor'| i18next}}</label>  
+        <div class="col-xs-8 ">
+            <input ng-disabled="true"
+                   ng-model="data.nomeCondutor"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.cpf'| i18next}}</label>  
+        <div class="col-xs-3 ">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.cpf"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.cnh'| i18next}}</label>  
+        <div class="col-xs-3 ">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.cnh"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+        
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.numeroRegistro'| i18next}}</label>  
+        <div class="col-xs-2 ">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.numeroRegistro"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.numeroContato'| i18next}}</label>  
+        <div class="col-xs-2 ">
+            <input ng-disabled="true"
+                   ng-model="data.numeroContato"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+        <label class="col-xs-1 control-label">{{'processoadministrativo.label.emailContato'| i18next}}</label>  
+        <div class="col-xs-3 ">
+            <input ng-disabled="true"
+                   ng-model="data.email"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+</fieldset>
+
+<fieldset class="customFieldset">
+    <legend>Dados do Processo Administrativo</legend>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.numeroProcesso'| i18next}}</label>  
+        <div class="col-xs-3 ">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.numeroProcessoMascarado"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+        
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.tipo'| i18next}}</label>  
+        <div class="col-xs-5 ">
+            <input ng-disabled="true"
+                   ng-model="data.tipoLabel"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.cenario'| i18next}}</label>  
+        <div class="col-xs-5 ">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.origemApoio.descricao"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.dataProcessamento'| i18next}}</label>  
+        <div class="col-xs-3 ">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.dataProcessamento"
+                   class="form-control input-md" type="text"  
+                   maxlength="10"
+                   size="10"
+                   dtn-datepicker />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.motivo'| i18next}}</label>  
+        <div class="col-xs-10">
+            <input ng-disabled="true"
+                   ng-model="data.entidade.origemApoio.descricao"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.descricaoAndamento'| i18next}}</label>
+        <div class="col-xs-10 ">
+            <input ng-disabled="true"
+                   ng-model="data.descricaoAndamento"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.fluxoProcessoDescricao'| i18next}}</label>  
+        <div class="col-xs-3 ">
+            <input ng-disabled="true"
+                   ng-model="data.fluxoProcessoDescricao"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.fase'| i18next}}</label>  
+        <div class="col-xs-5 ">
+            <input ng-disabled="true"
+                   ng-model="data.descricaoFase"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+       
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.situacaoAndamento'| i18next}}</label>  
+        <div class="col-xs-3 ">
+            <input ng-disabled="true"
+                   ng-model="data.situacaoAndamentoLabel"
+                   class="form-control input-sm"
+                   type="text">
+        </div>
+    </div>
+    
+    <div class="form-group" ng-show="data.entidade.origem != 'JURIDICA'">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.dataInicioPenalidade'| i18next}}</label>  
+        <div class="col-xs-2 ">
+            <input ng-disabled="true"
+                   ng-model="data.penalidadeProcesso.dataInicioPenalidade"
+                   class="form-control input-md" type="text"  
+                   maxlength="10"
+                   size="10"
+                   dtn-datepicker />
+        </div>
+        
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.dataFimPenalidade'| i18next}}</label>  
+        <div class="col-xs-2 ">
+            <input ng-disabled="true"
+                   ng-model="data.penalidadeProcesso.dataFimPenalidade"
+                   class="form-control input-md" 
+                   type="text"  
+                   maxlength="10"
+                   size="10"
+                   dtn-datepicker />
+        </div>
+        
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.tempoPenalidade'| i18next}}</label>  
+        <div class="col-xs-2 ">
+            <input ng-disabled="true"
+                   ng-model="data.valorPenalidadeLabel"
+                   class="form-control input-md" 
+                   type="text" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.dataProva'| i18next}}</label>  
+        <div class="col-xs-2 ">
+            <input ng-disabled="true"
+                   ng-model="data.dataProvaFormatada"
+                   class="form-control input-md" type="text"  
+                   maxlength="10"
+                   size="10"
+                   dtn-datepicker />
+        </div>
+        
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.notaProva'| i18next}}</label>  
+        <div class="col-xs-1 ">
+            <input ng-disabled="true"
+                   ng-model="data.notaProvaFormatada"
+                   class="form-control input-md" 
+                   type="text" />
+        </div>
+        <a ng-click="atualizarInformacoesProva()" class="col-xs-3 btn btn-success">Atualizar Informações Prova</a>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.local'| i18next}}</label>  
+        <div class="col-xs-10">
+            <input ng-disabled="true"
+                   ng-model="data.informacaoProva.postoatendimento"
+                   class="form-control input-md" 
+                   type="text" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-xs-2 control-label">{{'processoadministrativo.label.origem'| i18next}}</label>  
+        <div class="col-xs-6">
+            <input ng-disabled="true"
+                   ng-model="data.origemLabel"
+                   class="form-control input-md" 
+                   type="text" />
+        </div>
+    </div>
+    
+</fieldset>
+
+
+<fieldset ng-if="hasData" class="customFieldset">
+    <legend>Dados Processo Apensado</legend>
+    <div ng-if="hasData" detran-table action-buttons="actionButtons" my-name="processosFilhoTable" config="configTableProcessosFilho" ></div>
+</fieldset>
+
+<div class="form-group">
+    <label class="col-xs-e control-label"></label>  
+    <div ng-include="urlPartials + 'buttons/btn.html'"></div>
+</div>

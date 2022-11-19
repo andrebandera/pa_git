@@ -1,0 +1,18 @@
+<form class="form-horizontal row">
+    <tabset>
+        <tab heading="Geral">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('origemInstauracao')" ng-if="showTabs" heading="Origem Instauração">
+            <div class="filtros-header detalhe-header">{{data.entidade.descricao}}</div>
+            <div ng-include="filesPath('origemInstauracao/index.html')"></div>
+        </tab>
+        
+        <tab ng-click="tabClick('fluxoprocessofase')" ng-if="showTabs" heading="Fase Processo">
+            <div class="filtros-header detalhe-header">{{data.entidade.descricao}}</div>
+            <div ng-include="filesPath('fluxoprocessofase/index.html')"></div>
+        </tab>
+    </tabset>
+</form>

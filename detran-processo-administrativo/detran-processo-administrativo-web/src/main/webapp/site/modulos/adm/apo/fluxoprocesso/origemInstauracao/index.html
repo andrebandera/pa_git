@@ -1,0 +1,11 @@
+<div class="odd" ng-controller="origemInstauracaoCtrl">
+    <div ng-if="hasData" detran-table config="config" params="$parent.mestre.fluxoProcesso" action-buttons="actionButtons"></div>
+
+    <!-- Tabs -->
+    <tabset>
+        <tab heading="Geral">
+            <br/>
+            <div ng-include="filesPath('geral.html')"></div>
+        </tab>
+    </tabset>
+</div>

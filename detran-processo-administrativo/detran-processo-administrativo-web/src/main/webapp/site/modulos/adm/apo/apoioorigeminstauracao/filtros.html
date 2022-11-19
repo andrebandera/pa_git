@@ -1,0 +1,71 @@
+<!-- Código input-->
+<div class="col-xs-3">
+	<label class="control-label">{{ 'apoioorigeminstauracao.label.regra' | i18next }}</label>  
+    <input ui-keypress="{ enter: 'pesquisar()' }" ng-model="$parent.filtros.data.regra" class="form-control input-sm"  maxlength="9" dtn-number>
+</div>
+<!-- Descrição input-->
+<div class="col-xs-3">
+	<label class="control-label">
+		{{ 'apoioorigeminstauracao.label.descricao' | i18next }}
+	</label>  
+    <input ui-keypress="{ enter: 'pesquisar()' }" ng-model="$parent.filtros.data.descricao" class="form-control input-sm" type="text" maxlength="250" dtn-uppercase>
+</div>
+<!--Select Tipo Processo Resultado -->
+<div class="col-xs-3">
+    <label class="control-label">{{'apoioorigeminstauracao.label.tipoProcesso'| i18next}}</label>
+    <select ng-model="$parent.filtros.data.resultadoTipoProcesso"
+            class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value == $parent.filtros.data.resultadoTipoProcesso"
+                    ng-repeat="item in resultadoTipoProcessoSelect">{{item.label}}
+            </option>
+    </select>
+</div>
+
+<!--Select Motivo Resultado -->
+<div class="col-xs-3">
+    <label class="control-label">{{'apoioorigeminstauracao.label.motivo'| i18next}}</label>
+    <select ng-model="$parent.filtros.data.resultadoMotivo"
+            class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value == $parent.filtros.data.resultadoMotivo"
+                    ng-repeat="item in resultadoMotivoSelect">{{item.label}}
+            </option>
+    </select>
+</div>
+<!--Select Ação Resultado -->
+<div class="col-xs-3">
+    <label class="control-label">{{'apoioorigeminstauracao.label.acao'| i18next}}</label>
+    <select ng-model="$parent.filtros.data.resultadoAcao"
+            class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value == $parent.filtros.data.resultadoAcao"
+                    ng-repeat="item in resultadoAcaoSelect">{{item.label}}
+            </option>
+    </select>
+</div>
+<!--Select Ação Resultado -->
+<div class="col-xs-3">
+    <label class="control-label">{{'apoioorigeminstauracao.label.acaoSistema'| i18next}}</label>
+    <select ng-model="$parent.filtros.data.acaoSistema"
+            class="form-control input-sm">
+            <option value="">Selecione</option>
+            <option ng-value="item.value"
+                    ng-selected="item.value == $parent.filtros.data.acaoSistema"
+                    ng-repeat="item in acaoSistemaSelect">{{item.label}}
+            </option>
+    </select>
+</div>
+<!-- Situação Select -->
+<div class="col-xs-2">
+    <label class="control-label">{{'modulo.global.label.ativoLabel' | i18next}}</label>  
+    <select ng-model="filtros.data.ativo" class="form-control input-sm">
+        <option value="">Selecione</option>
+        <option ng-value="item.value"
+                ng-selected="item.value === filtros.data.ativo"
+                ng-repeat="item in ativoSelect">{{item.label}}</option>
+    </select>
+</div>
