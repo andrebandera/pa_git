@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="DETRAN-PA-PU" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <jta-data-source>jdbc/detranPA</jta-data-source>
+    <!-- INICIO - P.A. -->
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativo</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoInfracao</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.DadosInfracaoPAD</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAOcorrenciaStatus</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.DadosCondutorPAD</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAStatus</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAAndamentoProcesso</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAOpcaoMovimentacao</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAStatusAndamento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAMovimentacaoStatusAndamento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAEtapaProcesso</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAEtapaAndamento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoJson</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ApoioOrigemInstauracao</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ArquivoPA</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.NotificacaoProcessoAdministrativo</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAFluxoFase</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAPrioridadeFluxoAmparo</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAMovimentacaoFase</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAFluxoFase</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAFluxoOrigem</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAFaseProcessoAdm</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAFluxoProcesso</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.AndamentoProcessoAdministrativoConsulta</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PATipoCorpoAndamento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.NotificacaoComplemento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAComplemento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.EditalProcessoAdministrativo</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAFluxoFaseRetorno</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.Recurso</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.RecursoMovimento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.RepresentanteLegal</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.MotivoAlegacao</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.DestinoFase</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAFluxoAndamento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoCassacao</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoApensado</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ValorReferenciaLegal</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAEnderecoAlternativo</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.Protocolo</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.MovimentoCnh</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ResultadoRecurso</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoAgravado</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoAgravamento</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAPenalidadeProcesso</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.BloqueioBCA</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.MovimentoBloqueioBCA</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ResultadoProvaPA</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.Movimentacao</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.MovimentacaoInfracaoPA</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ExecucaoInstauracao</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.PAServico</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoBCA</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.LoteNotificacaoPA</class>
+    <!-- FIM - P.A. -->
+    <!-- INICIO - Protocolo -->
+    <class>br.gov.ms.detran.protocolo.entidade.CorreioIdentificador</class>
+    <class>br.gov.ms.detran.protocolo.entidade.CorreioIdentificadorDocumento</class>
+    <class>br.gov.ms.detran.protocolo.entidade.Correspondencia</class>
+    <class>br.gov.ms.detran.protocolo.entidade.CorrespondenciaDevolvida</class>
+    <class>br.gov.ms.detran.protocolo.entidade.CorrespondenciaTipo</class>
+    <class>br.gov.ms.detran.protocolo.entidade.CorrespondenciaCorreio</class>
+    <class>br.gov.ms.detran.protocolo.entidade.CorrespondenciaCorreioDevolucao</class>
+    <class>br.gov.ms.detran.protocolo.entidade.CorrespondenciaEspecie</class>
+    <class>br.gov.ms.detran.protocolo.entidade.CorrespondenciaMeioEnvio</class>
+    <!-- FIM - Protocolo -->
+
+    <!-- INICIO - PROCESSO JUDICIAL -->
+    <class>br.gov.ms.detran.processo.administrativo.entidade.DadoProcessoJudicial</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.DadoProcessoJuridicoDelito</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoJudicial</class>
+    <!-- FIM - PROCESSO JUDICIAL -->
+
+    <!-- Recurso Online -->
+    <class>br.gov.ms.detran.processo.administrativo.entidade.RecursoPAOnline</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.RecursoPAOnlineArquivo</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.RecursoPAOnlineFalha</class>
+    <!-- FIM - Recurso Online -->
+
+    <class>br.gov.ms.detran.comum.entidade.ResultLong</class>
+    <class>br.gov.ms.detran.processo.administrativo.entidade.ProcessoAdministrativoFalha</class>
+    
+    <!-- Function -->
+    <class>br.gov.ms.detran.processo.administrativo.entidade.FunctionProcessoAdministrativoCompetenciaInfracao</class>
+    
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="hibernate.show_sql" value="${jpa.show.sql}"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect"/>
+      <property name="hibernate.transaction.jta.platform"
+                value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
+    </properties>
+  </persistence-unit>
+</persistence>
